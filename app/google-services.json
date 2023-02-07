@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "672248350547",
+    "project_id": "diplomauth-af8ca",
+    "storage_bucket": "diplomauth-af8ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672248350547:android:2a0661600dca87dcd883a6",
+        "android_client_info": {
+          "package_name": "smart.estate.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672248350547-ppthvp9mo2rclegdomfj3a59tvt5t8jn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "smart.estate.app",
+            "certificate_hash": "142e6d90b9c6aebf66a01a7eb98de182991019ef"
+          }
+        },
+        {
+          "client_id": "672248350547-3uuj2atauj7iqlklf4dtfcgm442p0udo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDccW_fd2Bds6DONymdDQadoyaaT-jjrdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672248350547-3uuj2atauj7iqlklf4dtfcgm442p0udo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

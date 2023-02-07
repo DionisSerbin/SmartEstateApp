@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">smartEstateApp</string>
+
+    <string name="welcome_string">Добро пожаловать\nв Умную Недвижимость</string>
+    <string name="register_button_string">Войти с помощью почты</string>
+
+    <string name="add_mail">Введите почту</string>
+    <string name="add_password">Введите пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="not_register">Еще не зарегистрированы?</string>
+    <string name="add_password_again">Введите пароль еще раз</string>
+    <string name="already_register">Уже зарегистрированы? Жмите сюда</string>
+
+</resources>

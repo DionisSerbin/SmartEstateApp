@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_button">16sp</dimen>
+
+    <dimen name="zero_size">0dp</dimen>
+
+    <dimen name="margin_entry_large_top">120dp</dimen>
+    <dimen name="margin_entry_small_top">20dp</dimen>
+    <dimen name="margin_entry_meduim_top">60dp</dimen>
+    <dimen name="margin_entry_small_bottom">40dp</dimen>
+    <dimen name="margin_horizontal_screen">20dp</dimen>
+
+    <dimen name="padding_vertical_button">18dp</dimen>
+    <dimen name="padding_horizontal_button">46dp</dimen>
+
+    <dimen name="corner_button">18dp</dimen>
+
+
+</resources>

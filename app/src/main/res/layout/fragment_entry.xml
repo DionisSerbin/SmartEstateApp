@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_entry"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context=".presentation.sign.EntryFragment">
+
+
+    <ImageView
+        android:id="@+id/smart_search_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_entry_large_top"
+        android:src="@drawable/ic_estate_logo"
+        app:layout_constraintBottom_toTopOf="@id/welcome_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_entry_small_top"
+        android:layout_marginBottom="@dimen/margin_entry_small_bottom"
+        android:fontFamily="@font/main_font_regular"
+        android:text="@string/welcome_string"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_color"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintBottom_toTopOf="@+id/entry_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/smart_search_logo" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:layout_marginBottom="@dimen/margin_entry_small_bottom"
+        android:backgroundTint="@color/secondary_color"
+        android:fontFamily="@font/main_font_medium"
+        android:paddingHorizontal="@dimen/padding_horizontal_button"
+        android:paddingVertical="@dimen/padding_vertical_button"
+        android:text="@string/register_button_string"
+        android:textAlignment="viewEnd"
+        android:textAllCaps="false"
+        android:textColor="@color/main_color"
+        android:textSize="@dimen/text_size_button"
+        app:cornerRadius="@dimen/corner_button"
+        app:icon="@drawable/ic_baseline_mail_outline_24"
+        app:iconTint="@color/main_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/entry_picture"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
+        android:scaleType="centerCrop"
+        android:src="@drawable/entry_picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
