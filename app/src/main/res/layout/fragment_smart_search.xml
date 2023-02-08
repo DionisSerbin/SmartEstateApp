@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context=".presentation.smart.search.SmartSearchFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_horizontal_screen"
+        android:paddingVertical="@dimen/margin_horizontal_screen">
+
+        <TextView
+            android:id="@+id/smart_search_bar_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_large"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/smart_search_bar_text"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/set_parameters_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_large"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/set_parameters_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_search_bar_text_view" />
+
+        <TextView
+            android:id="@+id/set_parameters_description_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:fontFamily="@font/main_font_regular"
+            android:text="@string/set_parameters_description_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_parameters_text_view" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_large"
+
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_parameters_description_text_view"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/button1"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/main_font_regular"
+                android:padding="@dimen/padding_edit_text"
+                android:text="@string/all_estates_text"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_small" />
+
+            <Button
+                android:id="@+id/button2"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:padding="@dimen/padding_edit_text"
+                android:text="@string/secondary"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_small" />
+
+            <Button
+                android:id="@+id/button3"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:padding="@dimen/padding_edit_text"
+                android:text="@string/new_estate_text"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_small" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/where_to_find_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/where_to_find_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/where_to_find_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/city_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/house_type_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/house_type_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/type_house_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/house_type_text_view">
+
+            <AutoCompleteTextView
+                android:id="@+id/filled_exposed_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/any_house_type_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/level_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/level_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type_house_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/level_from_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toStartOf="@+id/level_to_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/level_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/from_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/level_to_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horizontal_input_small"
+            android:layout_marginTop="@dimen/margin_view_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/level_from_input"
+            app:layout_constraintTop_toBottomOf="@id/level_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/to_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/levels_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/levels_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/level_from_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/levels_from_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toStartOf="@+id/levels_to_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/levels_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/from_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/levels_to_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horizontal_input_small"
+            android:layout_marginTop="@dimen/margin_view_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/levels_from_input"
+            app:layout_constraintTop_toBottomOf="@id/levels_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/to_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/number_of_rooms_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/number_of_rooms_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/levels_from_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/number_of_rooms_from_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toStartOf="@+id/number_of_rooms_to_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/from_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/number_of_rooms_to_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/number_of_rooms_from_input"
+            app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/to_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/total_area_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/total_area_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_of_rooms_from_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/total_area_from_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toStartOf="@+id/total_area_to_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/from_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/total_area_to_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/total_area_from_input"
+            app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/to_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/kitchen_area_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:fontFamily="@font/main_font_semibold"
+            android:text="@string/kitchen_area_text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/total_area_from_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kitchen_area_from_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginEnd="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toStartOf="@+id/kitchen_area_to_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/from_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kitchen_area_to_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            android:layout_marginStart="@dimen/margin_horizontal_input_small"
+            app:boxCornerRadiusBottomEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusBottomStart="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopEnd="@dimen/corner_radius_edit_text"
+            app:boxCornerRadiusTopStart="@dimen/corner_radius_edit_text"
+            app:boxStrokeColor="@color/secondary_color"
+            app:hintTextColor="@color/secondary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/kitchen_area_from_input"
+            app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_font_regular"
+                android:hint="@string/to_input_text"
+                android:textColor="@color/back_color"
+                android:textSize="@dimen/text_size_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:fontFamily="@font/main_font_bold"
+            android:paddingVertical="@dimen/padding_vertical_button"
+            android:text="@string/predict_price_text"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/text_size_button"
+            app:cornerRadius="@dimen/corner_radius_edit_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

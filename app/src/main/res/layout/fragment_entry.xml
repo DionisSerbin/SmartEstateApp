@@ -51,7 +51,7 @@
         android:textAllCaps="false"
         android:textColor="@color/main_color"
         android:textSize="@dimen/text_size_button"
-        app:cornerRadius="@dimen/corner_button"
+        app:cornerRadius="@dimen/padding_edit_text"
         app:icon="@drawable/ic_baseline_mail_outline_24"
         app:iconTint="@color/main_color"
         app:layout_constraintBottom_toBottomOf="parent"

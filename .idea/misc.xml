@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.1905" />
         <entry key="app/src/main/res/drawable/ic_entry_mail.xml" value="0.3335" />
         <entry key="app/src/main/res/drawable/ic_estate_logo.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/toggle_button_group.xml" value="0.307" />
         <entry key="app/src/main/res/font/main_font.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12980957031249996" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.35054347826086957" />
         <entry key="app/src/main/res/layout/fragment_entry.xml" value="0.2541955459728074" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.23112182617187496" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.22415618896484374" />
+        <entry key="app/src/main/res/layout/fragment_predict.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.4271331787109375" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.44156799316406237" />
+        <entry key="app/src/main/res/layout/fragment_smart_search.xml" value="0.3206647899052868" />
+        <entry key="app/src/main/res/layout/house_type_dropdown_menu.xml" value="0.3066123188405797" />
       </map>
     </option>
   </component>

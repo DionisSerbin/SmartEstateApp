@@ -11,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.FirebaseAuth
 import smart.estate.app.R
 import smart.estate.app.presentation.MainActivity
 
@@ -52,11 +51,11 @@ class SignInFragment : Fragment() {
             val pass = view.findViewById<TextInputEditText>(R.id.password_text).text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                (activity as SignInActivity).getFirebaseAuthInstance().signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                (activity as SignInActivity).getFirebaseAuthInstance()
+                    .signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
                         val intent = Intent(signInButton.context, MainActivity::class.java)
                         startActivity(intent)
-
                     } else {
                         Toast.makeText(
                             signInButton.context,

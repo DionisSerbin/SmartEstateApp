@@ -1,14 +1,39 @@
 <resources>
     <string name="app_name">smartEstateApp</string>
 
+    <!--Entry fragment-->
     <string name="welcome_string">Добро пожаловать\nв Умную Недвижимость</string>
     <string name="register_button_string">Войти с помощью почты</string>
 
+    <!--Sign fragments-->
     <string name="add_mail">Введите почту</string>
     <string name="add_password">Введите пароль</string>
     <string name="sign_in">Войти</string>
     <string name="not_register">Еще не зарегистрированы?</string>
     <string name="add_password_again">Введите пароль еще раз</string>
     <string name="already_register">Уже зарегистрированы? Жмите сюда</string>
+
+    <!--Smart Search fragment-->
+    <string name="smart_search_bar_text">Умный поиск</string>
+    <string name="set_parameters_text">Задайте параметры</string>
+    <string name="set_parameters_description_text">которые помогут нам предсказать\nцену на недвижимость</string>
+    <string name="where_to_find_text">Где искать</string>
+    <string name="house_type_text">Тип дома</string>
+    <string name="level_text">Этаж</string>
+    <string name="levels_text">Всего этажей</string>
+    <string name="city_text">Город</string>
+    <string name="secondary">Вторичка</string>
+    <string name="new_estate_text">Новостройка</string>
+    <string name="all_estates_text">Все</string>
+    <string name="any_house_type_text">Любое</string>
+    <string name="from_input_text">От</string>
+    <string name="to_input_text">До</string>
+    <string name="number_of_rooms_text">Количество комнат</string>
+    <string name="total_area_text">Общая площадь</string>
+    <string name="kitchen_area_text">Площадь кухни</string>
+    <string name="predict_price_text">Узнать цену</string>
+
+    <!--Predict fragment-->
+    <string name="predicting_price_text">Предсказываем\nцену</string>
 
 </resources>

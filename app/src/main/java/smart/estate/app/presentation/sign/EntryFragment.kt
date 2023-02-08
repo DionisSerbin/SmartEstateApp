@@ -33,8 +33,4 @@ class EntryFragment : Fragment(R.layout.fragment_entry) {
         }
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = EntryFragment()
-    }
 }
