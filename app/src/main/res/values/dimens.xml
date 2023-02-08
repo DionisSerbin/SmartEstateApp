@@ -3,11 +3,13 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="text_size_button">16sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
     <dimen name="zero_size">0dp</dimen>
+    <dimen name="one_size">1dp</dimen>
 
     <dimen name="margin_entry_large_top">120dp</dimen>
     <dimen name="margin_entry_small_top">20dp</dimen>
-    <dimen name="margin_entry_meduim_top">60dp</dimen>
+    <dimen name="margin_entry_medium_top">60dp</dimen>
     <dimen name="margin_entry_small_bottom">40dp</dimen>
     <dimen name="margin_horizontal_screen">20dp</dimen>
     <dimen name="margin_view_large">20dp</dimen>
@@ -18,10 +20,15 @@
     <dimen name="padding_vertical_button">18dp</dimen>
     <dimen name="padding_horizontal_button">46dp</dimen>
     <dimen name="padding_edit_text">12dp</dimen>
+    <dimen name="padding_small_cost_value">8dp</dimen>
 
     <dimen name="corner_button">18dp</dimen>
     <dimen name="corner_radius_edit_text">10dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="estate_cost_card_shadow">10dp</dimen>
+
+    <dimen name="estate_card_height">212dp</dimen>
 
 
 </resources>

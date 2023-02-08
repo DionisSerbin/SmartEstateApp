@@ -36,4 +36,10 @@
     <!--Predict fragment-->
     <string name="predicting_price_text">Предсказываем\nцену</string>
 
+    <!--Estate Cost Predicted fragment-->
+    <string name="estate_predicted_cost_text">Цена за квартиру\nбудет</string>
+    <string name="lets_find_estate_by_cost">Давайте подберем квартиры\nпо выбранной вами\nцене и городу</string>
+    <string name="show_estates">Показать квартиры</string>
+
+
 </resources>

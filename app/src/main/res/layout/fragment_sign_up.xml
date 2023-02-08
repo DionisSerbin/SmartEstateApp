@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
-        android:layout_marginTop="@dimen/margin_entry_meduim_top"
+        android:layout_marginTop="@dimen/margin_entry_medium_top"
         app:boxBackgroundColor="@color/main_color"
         app:layout_constraintBottom_toTopOf="@id/passwordLayout"
         app:layout_constraintEnd_toEndOf="parent"

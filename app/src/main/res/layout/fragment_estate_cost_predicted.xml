@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context=".presentation.smart.search.EstateCostPredictedFragment">
+
+    <TextView
+        android:id="@+id/smart_search_bar_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:layout_marginVertical="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_view_large"
+        android:text="@string/smart_search_bar_text"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/predicted_cost_will_be_text_view"
+        style="@style/TextViewSemiBoldMainLargeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_view_large"
+        android:text="@string/estate_predicted_cost_text"
+        app:layout_constraintTop_toBottomOf="@id/smart_search_bar_text_view" />
+
+    <TextView
+        android:id="@+id/cost_from_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_view_large"
+        android:text="@string/from_input_text"
+        app:layout_constraintEnd_toStartOf="@+id/cost_to_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/predicted_cost_will_be_text_view" />
+
+    <TextView
+        android:id="@+id/cost_to_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_view_large"
+        android:layout_marginEnd="@dimen/margin_horizontal_screen"
+        android:text="@string/to_input_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cost_from_text_view"
+        app:layout_constraintTop_toBottomOf="@id/predicted_cost_will_be_text_view" />
+
+    <TextView
+        android:id="@+id/cost_value_from_text_view"
+        style="@style/TextViewSemiBoldMainLargeStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_view_small"
+        android:text="36.000.000 р"
+        android:textColor="@color/secondary_color"
+        app:layout_constraintEnd_toStartOf="@id/cost_value_to_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_from_text_view" />
+
+    <TextView
+        android:id="@+id/cost_value_to_text_view"
+        style="@style/TextViewSemiBoldMainLargeStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_view_small"
+        android:layout_marginEnd="@dimen/margin_horizontal_screen"
+        android:text="36.000.000 р"
+        android:textColor="@color/secondary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cost_value_from_text_view"
+        app:layout_constraintTop_toBottomOf="@id/cost_to_text_view" />
+
+    <TextView
+        android:id="@+id/lets_find_estate_text_view"
+        style="@style/TextViewRegularMainStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_entry_small_top"
+        android:text="@string/lets_find_estate_by_cost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_value_to_text_view" />
+
+    <ImageView
+        android:id="@+id/entry_picture"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginTop="@dimen/margin_entry_medium_top"
+        android:scaleType="centerCrop"
+        android:src="@drawable/estate_cost_picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lets_find_estate_text_view" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_button"
+        style="@style/MaterialButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:layout_marginBottom="@dimen/margin_horizontal_screen"
+        android:paddingVertical="@dimen/padding_vertical_button"
+        android:text="@string/show_estates"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

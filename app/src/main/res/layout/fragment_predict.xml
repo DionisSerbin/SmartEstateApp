@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,24 +12,32 @@
 
     <TextView
         android:id="@+id/smart_search_bar_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_view_large"
-        android:fontFamily="@font/main_font_semibold"
         android:text="@string/smart_search_bar_text"
         android:textAlignment="center"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size_small" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/set_parameters_text_view"
+        android:id="@+id/predicting_cost_text_view"
+        style="@style/TextViewSemiBoldMainLargeStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_view_large"
-        android:fontFamily="@font/main_font_semibold"
         android:text="@string/predicting_price_text"
         android:textAlignment="center"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size_large" />
+        app:layout_constraintTop_toBottomOf="@id/smart_search_bar_text_view" />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/predict_loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
