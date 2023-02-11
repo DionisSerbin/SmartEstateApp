@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.1905" />
         <entry key="app/src/main/res/drawable/ic_entry_mail.xml" value="0.3335" />
         <entry key="app/src/main/res/drawable/ic_estate_logo.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_smart_search_nav.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/predict_loading.xml" value="0.307" />
         <entry key="app/src/main/res/drawable/toggle_button_group.xml" value="0.307" />
         <entry key="app/src/main/res/font/main_font.xml" value="0.1" />
@@ -29,6 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_user_settings.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/house_type_dropdown_menu.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/my_test.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

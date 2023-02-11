@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".presentation.MainActivity">
 
     <fragment
@@ -19,14 +20,12 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero_size"
-        android:layout_weight="0.8"
-        android:foregroundGravity="center"
-        android:paddingTop="@dimen/padding_edit_text"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/bnv_tab_item_foreground"
+        android:layout_weight="1"
         android:background="@color/back_light_color"
         android:backgroundTintMode="multiply"
-
-        />
+        android:foregroundGravity="center"
+        android:paddingTop="@dimen/padding_edit_text"
+        app:itemIconTint="@color/bnv_tab_item_foreground"
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

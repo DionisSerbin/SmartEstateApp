@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/navigation_smart_search_home"
+        android:icon="@drawable/ic_smart_search_nav"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_classical_search"
+        android:icon="@drawable/ic_classical_search_nav"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_add_estate"
+        android:icon="@drawable/ic_add_estate_nav"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_favourites"
+        android:icon="@drawable/ic_favourites_nav"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_user_nav"
+        android:title="" />
+
 </menu>
