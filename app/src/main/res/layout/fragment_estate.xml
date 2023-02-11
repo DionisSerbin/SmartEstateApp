@@ -1,0 +1,155 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.estate.EstateFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/previous_page_button"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="@dimen/circle_button_size"
+        android:layout_height="@dimen/circle_button_size"
+        android:layout_marginStart="@dimen/margin_horizontal_screen"
+        android:layout_marginTop="@dimen/margin_horizontal_screen"
+        android:insetLeft="@dimen/zero_size"
+        android:insetTop="@dimen/zero_size"
+        android:insetRight="@dimen/zero_size"
+        android:insetBottom="@dimen/zero_size"
+        android:padding="@dimen/zero_size"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/zero_size"
+        app:iconTint="@color/text_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/photos_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        app:layout_constraintBottom_toTopOf="@id/estate_cost_value_text_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="5" />
+
+    <TextView
+        android:id="@+id/estate_cost_value_text_view"
+        style="@style/TextViewSemiBoldMainLargeStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical"
+        android:text="10 243 254 р"
+        android:textColor="@color/secondary_color"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toTopOf="@id/total_area_text_view"
+        app:layout_constraintEnd_toStartOf="@id/time_published_text_view"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photos_view_pager"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/time_published_text_view"
+        style="@style/TextViewRegularSecondarySuperSmallStyle"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginEnd="@dimen/margin_horizontal_card_estate"
+        android:layout_marginBottom="@dimen/margin_view_medium"
+        android:gravity="center_vertical|end"
+        android:text="30 января 2022, 09:22"
+        app:layout_constraintBottom_toTopOf="@id/total_area_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@id/estate_cost_value_text_view"
+        app:layout_constraintTop_toBottomOf="@id/photos_view_pager"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/total_area_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="37.7 м^2"
+        app:layout_constraintBottom_toTopOf="@id/address_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@id/estate_cost_value_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/address_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="Москва, Таможенный проезд 12, подъезд 1"
+        app:layout_constraintBottom_toTopOf="@id/type_house_text_view"
+        app:layout_constraintTop_toBottomOf="@id/total_area_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/type_house_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="Новостройка"
+        app:layout_constraintBottom_toTopOf="@id/level_text_view"
+        app:layout_constraintTop_toBottomOf="@id/address_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/level_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="12 этаж"
+        app:layout_constraintBottom_toTopOf="@id/levels_text_view"
+        app:layout_constraintTop_toBottomOf="@id/type_house_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/levels_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="Всего этажей: 18"
+        app:layout_constraintBottom_toTopOf="@id/rooms_text_view"
+        app:layout_constraintTop_toBottomOf="@id/level_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/rooms_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="3 комнаты"
+        app:layout_constraintBottom_toTopOf="@id/kitchen_area_text_view"
+        app:layout_constraintTop_toBottomOf="@id/levels_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+    <TextView
+        android:id="@+id/kitchen_area_text_view"
+        style="@style/TextViewSemiBoldMainSmallStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_size"
+        android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+        android:gravity="center_vertical|start"
+        android:text="Плошадь кухни: 14 км^2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rooms_text_view"
+        app:layout_constraintVertical_weight="0.625" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

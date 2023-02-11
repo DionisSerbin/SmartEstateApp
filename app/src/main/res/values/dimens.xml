@@ -3,6 +3,7 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="text_size_button">16sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_super_small">14sp</dimen>
     <dimen name="text_size_medium">20sp</dimen>
     <dimen name="zero_size">0dp</dimen>
     <dimen name="one_size">1dp</dimen>
@@ -12,18 +13,23 @@
     <dimen name="margin_entry_medium_top">60dp</dimen>
     <dimen name="margin_entry_small_bottom">40dp</dimen>
     <dimen name="margin_horizontal_screen">20dp</dimen>
+    <dimen name="margin_vertical_screen">40dp</dimen>
     <dimen name="margin_view_large">20dp</dimen>
     <dimen name="margin_view_small">3dp</dimen>
     <dimen name="margin_view_medium">6dp</dimen>
     <dimen name="margin_horizontal_input_small">10dp</dimen>
+    <dimen name="margin_horizontal_card_estate">12dp</dimen>
 
     <dimen name="padding_vertical_button">18dp</dimen>
+    <dimen name="padding_top_of_bar">16dp</dimen>
     <dimen name="padding_horizontal_button">46dp</dimen>
     <dimen name="padding_edit_text">12dp</dimen>
+    <dimen name="padding_text_button">4dp</dimen>
     <dimen name="padding_small_cost_value">8dp</dimen>
 
     <dimen name="corner_button">18dp</dimen>
-    <dimen name="corner_radius_edit_text">10dp</dimen>
+    <dimen name="circle_button_size">48dp</dimen>
+    <dimen name="corner_radius_edit">10dp</dimen>
     <dimen name="text_margin">16dp</dimen>
 
     <dimen name="estate_cost_card_shadow">10dp</dimen>

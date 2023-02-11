@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color"
-    tools:context=".presentation.smart.search.SmartSearchFragment">
+    tools:context=".presentation.add.estate.AddEstateFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,38 +14,75 @@
         android:paddingVertical="@dimen/margin_horizontal_screen">
 
         <TextView
-            android:id="@+id/smart_search_bar_text_view"
+            android:id="@+id/add_estate_bar_text_view"
             style="@style/TextViewSemiBoldMainSmallStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_large"
-            android:text="@string/smart_search_bar_text"
+            android:text="@string/add_estate_text"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/set_parameters_text_view"
-            style="@style/TextViewSemiBoldMainLargeStyle"
+            android:id="@+id/cost_value_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_view_large"
-            android:text="@string/set_parameters_text"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:text="@string/classical_cost_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/smart_search_bar_text_view" />
+            app:layout_constraintTop_toBottomOf="@id/add_estate_bar_text_view" />
 
-        <TextView
-            android:id="@+id/set_parameters_description_text_view"
-            style="@style/TextViewRegularMainStyle"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cost_input"
+            style="@style/TextInputViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
-            android:text="@string/set_parameters_description_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cost_value_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextViewRegularSecondarySmallStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_cost_value_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/photo_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
+            android:text="@string/photo_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/set_parameters_text_view" />
+            app:layout_constraintTop_toBottomOf="@id/cost_input" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/photo_input"
+            style="@style/TextInputViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photo_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextViewRegularSecondarySmallStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_photo_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/toggleButton"
@@ -55,7 +92,7 @@
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/set_parameters_description_text_view"
+            app:layout_constraintTop_toBottomOf="@id/photo_input"
             app:singleSelection="true">
 
             <Button
@@ -156,11 +193,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/level_from_input"
             style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
             android:layout_marginEnd="@dimen/margin_horizontal_input_small"
-            app:layout_constraintEnd_toStartOf="@+id/level_to_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/level_text_view">
 
@@ -168,28 +204,10 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/add_level_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/level_to_input"
-            style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_horizontal_input_small"
-            android:layout_marginTop="@dimen/margin_view_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/level_from_input"
-            app:layout_constraintTop_toBottomOf="@id/level_text_view">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/TextViewRegularSecondarySmallStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/levels_text_view"
@@ -205,11 +223,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/levels_from_input"
             style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
             android:layout_marginEnd="@dimen/margin_horizontal_input_small"
-            app:layout_constraintEnd_toStartOf="@+id/levels_to_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/levels_text_view">
 
@@ -217,26 +234,7 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/levels_to_input"
-            style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_horizontal_input_small"
-            android:layout_marginTop="@dimen/margin_view_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/levels_from_input"
-            app:layout_constraintTop_toBottomOf="@id/levels_text_view">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/TextViewRegularSecondarySmallStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/levels_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -254,11 +252,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/number_of_rooms_from_input"
             style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
             android:layout_marginEnd="@dimen/margin_horizontal_input_small"
-            app:layout_constraintEnd_toStartOf="@+id/number_of_rooms_to_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
 
@@ -266,26 +263,7 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/number_of_rooms_to_input"
-            style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_horizontal_input_small"
-            android:layout_marginTop="@dimen/margin_view_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/number_of_rooms_from_input"
-            app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/TextViewRegularSecondarySmallStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/add_rooms_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -303,11 +281,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/total_area_from_input"
             style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
             android:layout_marginEnd="@dimen/margin_horizontal_input_small"
-            app:layout_constraintEnd_toStartOf="@+id/total_area_to_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
 
@@ -315,26 +292,7 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/total_area_to_input"
-            style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_horizontal_input_small"
-            android:layout_marginTop="@dimen/margin_view_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/total_area_from_input"
-            app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/TextViewRegularSecondarySmallStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/add_total_area_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -352,11 +310,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/kitchen_area_from_input"
             style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_small"
             android:layout_marginEnd="@dimen/margin_horizontal_input_small"
-            app:layout_constraintEnd_toStartOf="@+id/kitchen_area_to_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
 
@@ -364,26 +321,7 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kitchen_area_to_input"
-            style="@style/TextInputViewStyle"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_horizontal_input_small"
-            android:layout_marginTop="@dimen/margin_view_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/kitchen_area_from_input"
-            app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/TextViewRegularSecondarySmallStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/add_kitchen_area_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -393,7 +331,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/padding_vertical_button"
-            android:text="@string/predict_price_text"
+            android:text="@string/add_estate_ready_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

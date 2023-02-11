@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextViewSemiBoldMainStyle">
+        <item name="android:fontFamily">@font/main_font_semibold</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="TextViewSemiBoldMainSmallStyle" parent="TextViewSemiBoldMainStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextViewSemiBoldMainLargeStyle" parent="TextViewSemiBoldMainStyle">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextViewRegularSecondaryStyle">
+        <item name="android:fontFamily">@font/main_font_regular</item>
+        <item name="android:textColor">@color/back_color</item>
+    </style>
+
+    <style name="TextViewRegularSecondarySuperSmallStyle" parent="TextViewRegularSecondaryStyle">
+        <item name="android:textSize">@dimen/text_size_super_small</item>
+    </style>
+
+    <style name="TextViewRegularSecondarySmallStyle" parent="TextViewRegularSecondaryStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextViewRegularMainStyle" parent="TextViewSemiBoldMainSmallStyle">
+        <item name="android:fontFamily">@font/main_font_regular</item>
+    </style>
+
+    <style name="TextViewMediumMainStyle">
+        <item name="android:fontFamily">@font/main_font_medium</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextInputViewStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_edit</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_edit</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_edit</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_edit</item>
+        <item name="boxStrokeColor">@color/secondary_color</item>
+        <item name="hintTextColor">@color/secondary_color</item>
+    </style>
+
+
+    <style name="OutlineButtonRegularTexViewStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:fontFamily">@font/main_font_regular</item>
+        <item name="android:padding">@dimen/padding_edit_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="MaterialButtonStyle">
+        <item name="android:backgroundTint">@color/secondary_color</item>
+        <item name="android:fontFamily">@font/main_font_semibold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="cornerRadius">@dimen/corner_radius_edit</item>
+    </style>
+
+    <style name="MaterialCircleButtonStyle">
+        <item name="android:backgroundTint">@color/main_color</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

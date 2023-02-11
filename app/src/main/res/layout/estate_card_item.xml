@@ -1,40 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/estate_card_height"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/corner_radius_edit_text">
+    app:cardCornerRadius="@dimen/corner_radius_edit"
+    app:cardElevation="@dimen/estate_cost_card_shadow">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/photos_view_pager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/zero_size"
+            app:layout_constraintBottom_toTopOf="@+id/estate_cost_value_text_view"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/estate_cost_value_text_view"/>
+            app:layout_constraintVertical_weight="6" />
+
 
         <TextView
             android:id="@+id/estate_cost_value_text_view"
-            android:layout_width="@dimen/zero_size"
-            android:layout_height="wrap_content"
-            android:text="1243254"
             style="@style/TextViewSemiBoldMainLargeStyle"
-            android:textSize="@dimen/text_size_medium"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="@dimen/zero_size"
+            android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+            android:gravity="center_vertical"
+            android:text="10 243 254 р"
             android:textColor="@color/secondary_color"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toTopOf="@id/address_text_view"
+            app:layout_constraintEnd_toStartOf="@id/total_area_text_view"
+            app:layout_constraintHorizontal_weight="8"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/photos_view_pager"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintVertical_weight="2" />
 
+        <TextView
+            android:id="@+id/total_area_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="@dimen/zero_size"
+            android:layout_marginEnd="@dimen/margin_horizontal_card_estate"
+            android:gravity="center_vertical|end"
+            android:text="37.7 м^2"
+            app:layout_constraintBottom_toTopOf="@id/address_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@id/estate_cost_value_text_view"
+            app:layout_constraintTop_toBottomOf="@id/photos_view_pager"
+            app:layout_constraintVertical_weight="2" />
 
+        <TextView
+            android:id="@+id/address_text_view"
+            style="@style/TextViewRegularSecondarySmallStyle"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="@dimen/zero_size"
+            android:layout_marginStart="@dimen/margin_horizontal_card_estate"
+            android:layout_marginBottom="@dimen/margin_view_medium"
+            android:text="Москва, Таможенный проезд 12, подъезд 1"
+            android:textColor="@color/text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/time_published_text_view"
+            app:layout_constraintHorizontal_weight="6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/estate_cost_value_text_view"
+            app:layout_constraintVertical_weight="2" />
 
+        <TextView
+            android:id="@+id/time_published_text_view"
+            style="@style/TextViewRegularSecondarySuperSmallStyle"
+            android:layout_width="@dimen/zero_size"
+            android:layout_height="@dimen/zero_size"
+            android:layout_marginEnd="@dimen/margin_horizontal_card_estate"
+            android:layout_marginBottom="@dimen/margin_view_medium"
+            android:gravity="bottom|end"
+            android:text="30 января 2022, 09:22"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@id/address_text_view"
+            app:layout_constraintTop_toBottomOf="@id/total_area_text_view"
+            app:layout_constraintVertical_weight="2" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/favourite_button"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/circle_button_size"
+            android:layout_height="@dimen/circle_button_size"
+            android:layout_marginTop="@dimen/margin_horizontal_card_estate"
+            android:layout_marginEnd="@dimen/margin_horizontal_card_estate"
+            android:insetLeft="@dimen/zero_size"
+            android:insetTop="@dimen/zero_size"
+            android:insetRight="@dimen/zero_size"
+            android:insetBottom="@dimen/zero_size"
+            android:padding="@dimen/zero_size"
+            app:icon="@drawable/ic_baseline_star_border_24"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/zero_size"
+            app:iconTint="@color/text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.cardview.widget.CardView>

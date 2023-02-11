@@ -41,5 +41,38 @@
     <string name="lets_find_estate_by_cost">Давайте подберем квартиры\nпо выбранной вами\nцене и городу</string>
     <string name="show_estates">Показать квартиры</string>
 
+    <!--Classical Search fragment-->
+    <string name="classical_search_bar_text">Классический поиск</string>
 
+    <!--Filter Classical Search fragment-->
+    <string name="classical_cost_text">Цена</string>
+    <string name="classical_filters_ready_text">Готово</string>
+
+    <!--Favourites fragment-->
+    <string name="favourites_bar_text">Избранное</string>
+
+    <!--User fragment-->
+    <string name="change_user_settings_text">Изменить данные</string>
+    <string name="user_login_text">Логин</string>
+    <string name="user_mail_text">Почта</string>
+    <string name="user_estates_text">Ваши объявления</string>
+
+    <!--User Settings fragment-->
+    <string name="user_name_text">Имя</string>
+    <string name="user_name_text_input_text">Введите ваше имя</string>
+    <string name="user_login_text_input_text">Введите ваш логин</string>
+    <string name="user_mail_text_input_text">Введите вашу почту</string>
+    <string name="settings_ready_text">Готово</string>
+
+    <!--Add Estate fragment-->
+    <string name="add_estate_text">Разместить\nобъявление</string>
+    <string name="add_cost_value_text">Введите цену</string>
+    <string name="photo_text">Фото</string>
+    <string name="add_photo_text">Добавьте фото</string>
+    <string name="add_level_text">Добавьте ваш этаж</string>
+    <string name="add_levels_text">Добавьте всего этажей</string>
+    <string name="add_total_area_text">Добавьте общую площадь</string>
+    <string name="add_rooms_text">Добавьте количество комнат</string>
+    <string name="add_kitchen_area_text">Добавьте площадь кухни</string>
+    <string name="add_estate_ready_text">Готово</string>
 </resources>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context=".presentation.user.UserFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exit_button"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/circle_button_size"
+            android:layout_height="@dimen/circle_button_size"
+            android:layout_marginTop="@dimen/margin_horizontal_screen"
+            android:layout_marginEnd="@dimen/margin_horizontal_screen"
+            android:insetLeft="@dimen/zero_size"
+            android:insetTop="@dimen/zero_size"
+            android:insetRight="@dimen/zero_size"
+            android:insetBottom="@dimen/zero_size"
+            android:padding="@dimen/zero_size"
+            app:icon="@drawable/ic_baseline_exit_to_app_24"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/zero_size"
+            app:iconTint="@color/text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/settings_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_horizontal_screen"
+            android:fontFamily="@font/main_font_regular"
+            android:paddingHorizontal="@dimen/padding_text_button"
+            android:paddingVertical="@dimen/padding_text_button"
+            android:text="@string/change_user_settings_text"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size_button"
+            app:cornerRadius="@dimen/padding_edit_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_photo_image_view"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/margin_entry_medium_top"
+            android:scaleType="centerCrop"
+            android:src="@drawable/estate_cost_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_button"
+            app:shapeAppearanceOverlay="@style/RoundedImageView"
+            app:strokeColor="@color/main_color"
+            app:strokeWidth="@dimen/one_size" />
+
+        <TextView
+            android:id="@+id/user_name_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_entry_small_top"
+            android:text="Пользователь"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_photo_image_view" />
+
+        <TextView
+            android:id="@+id/user_login_string_ext_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_entry_small_top"
+            android:text="@string/user_login_text"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_name_text_view" />
+
+        <TextView
+            android:id="@+id/user_login_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_entry_small_top"
+            android:text="Ваш логин"
+            android:textAlignment="textStart"
+            android:textColor="@color/secondary_color"
+            app:layout_constraintStart_toEndOf="@id/user_login_string_ext_view"
+            app:layout_constraintTop_toBottomOf="@id/user_name_text_view" />
+
+
+        <TextView
+            android:id="@+id/user_mail_string_ext_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_entry_small_top"
+            android:text="@string/user_mail_text"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_login_string_ext_view" />
+
+        <TextView
+            android:id="@+id/user_mail_text_view"
+            style="@style/TextViewSemiBoldMainSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_entry_small_top"
+            android:text="Ваша почта"
+            android:textAlignment="textStart"
+            android:textColor="@color/secondary_color"
+            app:layout_constraintStart_toEndOf="@id/user_login_string_ext_view"
+            app:layout_constraintTop_toBottomOf="@id/user_login_string_ext_view" />
+
+        <TextView
+            android:id="@+id/user_estates"
+            style="@style/TextViewSemiBoldMainLargeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:layout_marginTop="@dimen/margin_view_large"
+            android:text="@string/user_estates_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_mail_string_ext_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favourites_estate_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero_size"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/padding_top_of_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_estates" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
