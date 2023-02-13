@@ -7,9 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_smart_search_home"
-        android:name="smart.estate.app.presentation.smart.search.SmartSearchFragment"
+        android:name="smart.estate.app.presentation.smart.search.view.SmartSearchFragment"
         android:label="title_home"
-        tools:layout="@layout/fragment_smart_search" />
+        tools:layout="@layout/fragment_smart_search">
+        <action
+            android:id="@+id/action_navigation_smart_search_home_to_predictFragment"
+            app:destination="@id/predictFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_classical_search"
@@ -34,5 +38,23 @@
         android:name="smart.estate.app.presentation.user.UserFragment"
         android:label="title_user"
         tools:layout="@layout/fragment_user" />
+
+    <fragment
+        android:id="@+id/predictFragment"
+        android:name="smart.estate.app.presentation.smart.search.view.PredictFragment"
+        android:label="fragment_predict"
+        tools:layout="@layout/fragment_predict">
+        <action
+            android:id="@+id/action_predictFragment_to_navigation_smart_search_home"
+            app:destination="@id/navigation_smart_search_home" />
+        <action
+            android:id="@+id/action_predictFragment_to_estateCostPredictedFragment"
+            app:destination="@id/estateCostPredictedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/estateCostPredictedFragment"
+        android:name="smart.estate.app.presentation.smart.search.view.EstateCostPredictedFragment"
+        android:label="fragment_estate_cost_predicted"
+        tools:layout="@layout/fragment_estate_cost_predicted" />
 
 </navigation>

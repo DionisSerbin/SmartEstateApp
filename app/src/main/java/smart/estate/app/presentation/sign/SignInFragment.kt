@@ -21,15 +21,6 @@ class SignInFragment : Fragment() {
         fun createSignUpFragment()
     }
 
-
-    override fun onStart() {
-        super.onStart()
-        if ((activity as SignInActivity).getFirebaseAuthInstance().currentUser != null) {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

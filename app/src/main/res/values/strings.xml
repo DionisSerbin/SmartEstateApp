@@ -25,13 +25,22 @@
     <string name="secondary">Вторичка</string>
     <string name="new_estate_text">Новостройка</string>
     <string name="all_estates_text">Все</string>
-    <string name="any_house_type_text">Любое</string>
+    <string name="any_house_type_text">Выберите тип</string>
     <string name="from_input_text">От</string>
     <string name="to_input_text">До</string>
     <string name="number_of_rooms_text">Количество комнат</string>
     <string name="total_area_text">Общая площадь</string>
     <string name="kitchen_area_text">Площадь кухни</string>
     <string name="predict_price_text">Узнать цену</string>
+    <string-array name="house_types">
+        <item>Любое</item>
+        <item>Другие</item>
+        <item>Панельный</item>
+        <item>Монолитный</item>
+        <item>Кирпичный</item>
+        <item>Блочный</item>
+        <item>Деревянный</item>
+    </string-array>
 
     <!--Predict fragment-->
     <string name="predicting_price_text">Предсказываем\nцену</string>

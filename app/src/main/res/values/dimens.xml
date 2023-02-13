@@ -24,6 +24,7 @@
     <dimen name="padding_top_of_bar">16dp</dimen>
     <dimen name="padding_horizontal_button">46dp</dimen>
     <dimen name="padding_edit_text">12dp</dimen>
+    <dimen name="padding_nav_bar">8dp</dimen>
     <dimen name="padding_text_button">4dp</dimen>
     <dimen name="padding_small_cost_value">8dp</dimen>
 

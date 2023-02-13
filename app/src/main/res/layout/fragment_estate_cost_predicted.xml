@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color"
-    tools:context=".presentation.smart.search.EstateCostPredictedFragment">
+    tools:context=".presentation.smart.search.view.EstateCostPredictedFragment">
 
     <TextView
         android:id="@+id/smart_search_bar_text_view"
@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horizontal_screen"
         android:layout_marginTop="@dimen/margin_view_small"
-        android:text="36.000.000 р"
         android:textColor="@color/secondary_color"
         app:layout_constraintEnd_toStartOf="@id/cost_value_to_text_view"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_view_small"
         android:layout_marginEnd="@dimen/margin_horizontal_screen"
-        android:text="36.000.000 р"
         android:textColor="@color/secondary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/cost_value_from_text_view"

@@ -96,7 +96,7 @@
             app:singleSelection="true">
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/button_all"
                 style="@style/OutlineButtonRegularTexViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,14 +104,14 @@
                 android:text="@string/all_estates_text" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_second_using"
                 style="@style/OutlineButtonRegularTexViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/secondary" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button_new_estate"
                 style="@style/OutlineButtonRegularTexViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -2,10 +2,11 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/smart_search_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color"
-    tools:context=".presentation.smart.search.SmartSearchFragment">
+    tools:context=".presentation.smart.search.view.SmartSearchFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -53,31 +54,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_large"
             android:gravity="center"
+            app:checkedButton="@+id/button_all"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/set_parameters_description_text_view"
             app:singleSelection="true">
 
             <Button
-                android:id="@+id/button1"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_all"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/all_estates_text" />
 
             <Button
-                android:id="@+id/button2"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_second_using"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/secondary" />
 
             <Button
-                android:id="@+id/button3"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_new_estate"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/new_estate_text" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -103,10 +108,12 @@
             app:layout_constraintTop_toBottomOf="@id/where_to_find_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/city_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/city_text" />
+                android:hint="@string/city_text"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,7 +145,8 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/any_house_type_text" />
+                android:hint="@string/any_house_type_text"
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -165,10 +173,12 @@
             app:layout_constraintTop_toBottomOf="@id/level_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/level_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,10 +194,12 @@
             app:layout_constraintTop_toBottomOf="@id/level_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/level_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -214,10 +226,12 @@
             app:layout_constraintTop_toBottomOf="@id/levels_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/levels_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -233,10 +247,12 @@
             app:layout_constraintTop_toBottomOf="@id/levels_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/levels_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -263,10 +279,12 @@
             app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/numbers_of_rooms_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -282,10 +300,12 @@
             app:layout_constraintTop_toBottomOf="@id/number_of_rooms_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/numbers_of_rooms_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -312,10 +332,12 @@
             app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/total_area_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -331,10 +353,12 @@
             app:layout_constraintTop_toBottomOf="@id/total_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/total_area_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -361,10 +385,12 @@
             app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kitchen_area_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -380,10 +406,12 @@
             app:layout_constraintTop_toBottomOf="@id/kitchen_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kitchen_area_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -392,11 +420,13 @@
             style="@style/MaterialButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_medium"
             android:paddingVertical="@dimen/padding_vertical_button"
             android:text="@string/predict_price_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kitchen_area_to_input" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

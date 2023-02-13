@@ -8,7 +8,25 @@
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/margin_horizontal_screen"
     android:paddingVertical="@dimen/margin_horizontal_screen"
-    tools:context=".presentation.smart.search.PredictFragment">
+    tools:context=".presentation.smart.search.view.PredictFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/smart_search_previous_page_button"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="@dimen/circle_button_size"
+        android:layout_height="@dimen/circle_button_size"
+        android:insetLeft="@dimen/zero_size"
+        android:insetTop="@dimen/zero_size"
+        android:insetRight="@dimen/zero_size"
+        android:insetBottom="@dimen/zero_size"
+        android:padding="@dimen/zero_size"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/zero_size"
+        app:iconTint="@color/text_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
 
     <TextView
         android:id="@+id/smart_search_bar_text_view"
@@ -31,10 +49,10 @@
         app:layout_constraintTop_toBottomOf="@id/smart_search_bar_text_view" />
 
     <ImageView
+        android:id="@+id/predicting_animation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/predict_loading"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
