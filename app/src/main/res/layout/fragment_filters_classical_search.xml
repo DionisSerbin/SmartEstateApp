@@ -420,8 +420,10 @@
             style="@style/MaterialButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_view_small"
             android:paddingVertical="@dimen/padding_vertical_button"
             android:text="@string/classical_filters_ready_text"
+            app:layout_constraintTop_toBottomOf="@id/classical_kitchen_area_from_input"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

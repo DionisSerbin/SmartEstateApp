@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_classical_search"
-        android:name="smart.estate.app.presentation.classical.search.ClassicalSearchFragment"
+        android:name="smart.estate.app.presentation.classical.search.view.ClassicalSearchFragment"
         android:label="title_classical_search"
         tools:layout="@layout/fragment_classical_search" />
 

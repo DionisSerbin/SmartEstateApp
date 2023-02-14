@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import smart.estate.app.data.local.test.PredictionTestService
+import smart.estate.app.data.local.test.TestService
 import smart.estate.app.data.repository.DataRepository
 import javax.inject.Singleton
 
@@ -14,7 +14,7 @@ class DataRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideDataRepository(predictionTestService: PredictionTestService): DataRepository {
-        return DataRepository(predictionTestService)
+    fun provideDataRepository(testService: TestService): DataRepository {
+        return DataRepository(testService)
     }
 }

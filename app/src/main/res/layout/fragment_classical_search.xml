@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.classical.search.ClassicalSearchFragment">
+    tools:context=".presentation.classical.search.view.ClassicalSearchFragment">
 
     <TextView
         android:id="@+id/classical_search_bar_text_view"
