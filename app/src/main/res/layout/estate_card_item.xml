@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/margin_view_large"
     android:layout_height="@dimen/estate_card_height"
     app:cardCornerRadius="@dimen/corner_radius_edit"
     app:cardElevation="@dimen/estate_cost_card_shadow">
@@ -95,6 +96,7 @@
             android:insetRight="@dimen/zero_size"
             android:insetBottom="@dimen/zero_size"
             android:padding="@dimen/zero_size"
+
             app:icon="@drawable/ic_baseline_star_border_24"
             app:iconGravity="textStart"
             app:iconPadding="@dimen/zero_size"
@@ -102,6 +104,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
+        
+        <TextView
+            android:id="@+id/page_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/secondary_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="hui"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

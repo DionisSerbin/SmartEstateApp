@@ -16,7 +16,7 @@ class TestService @Inject constructor() : TestInterface {
         val estateList: MutableList<Estate> = mutableListOf()
         for (i in 0..9) {
             val estate = Estate(
-                id = page + i,
+                id = (page - 1) * 10 + i,
                 price = (5..10).random().toFloat(),
                 year = (2019..2022).random(),
                 month = (1..12).random(),

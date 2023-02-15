@@ -1,4 +1,4 @@
-package smart.estate.app.presentation.classical.search.view
+package smart.estate.app.presentation.favourites.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,14 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
+import smart.estate.app.presentation.favourites.viewmodel.FavouritesViewModel
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
-import smart.estate.app.presentation.classical.search.viewmodel.ClassicalSearchViewModel
-
 
 @AndroidEntryPoint
-class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
+class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
-    private val classicalSearchViewModel: ClassicalSearchViewModel by viewModels()
+    private val favouritesViewModel: FavouritesViewModel by viewModels()
 
     private val estateRecyclerAdapter = EstateRecyclerAdapter()
 
@@ -32,14 +31,14 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_classical_search, container, false)
+        return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        view.findViewById<RecyclerView>(R.id.classical_estate_recycler_view).apply {
+        view.findViewById<RecyclerView>(R.id.favourites_estate_recycler_view).apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = estateRecyclerAdapter
         }
@@ -67,7 +66,7 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
         }
 
         viewLifecycleOwner.lifecycleScope.launch{
-            classicalSearchViewModel.getEstates().observe(viewLifecycleOwner){
+            favouritesViewModel.getEstates().observe(viewLifecycleOwner){
                 it?.let {
                     estateRecyclerAdapter.submitData(lifecycle, it)
                 }
@@ -77,9 +76,8 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
 
     companion object {
 
-        const val DELAY_TIME: Long = 1000
+        const val DELAY_TIME: Long = 500
         @JvmStatic
-        fun newInstance() = ClassicalSearchFragment()
-
+        fun newInstance() = FavouritesFragment()
     }
 }

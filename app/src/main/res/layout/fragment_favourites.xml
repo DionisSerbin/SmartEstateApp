@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.favourites.FavouritesFragment">
+    tools:context=".presentation.favourites.view.FavouritesFragment">
 
     <TextView
         android:id="@+id/favourites_bar_text_view"
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_vertical_screen"
         android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:paddingBottom="@dimen/padding_bottom_of_bar"
         android:text="@string/favourites_bar_text"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,10 +25,20 @@
         android:id="@+id/favourites_estate_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero_size"
-        android:layout_marginHorizontal="@dimen/margin_horizontal_screen"
+        android:paddingStart="@dimen/margin_horizontal_screen"
+        android:paddingEnd="@dimen/margin_horizontal_screen"
         android:paddingTop="@dimen/padding_top_of_bar"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favourites_bar_text_view" />
+
+    <ProgressBar
+        android:id="@+id/progressDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

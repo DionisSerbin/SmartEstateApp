@@ -29,13 +29,13 @@
 
     <fragment
         android:id="@+id/navigation_favourites"
-        android:name="smart.estate.app.presentation.favourites.FavouritesFragment"
+        android:name="smart.estate.app.presentation.favourites.view.FavouritesFragment"
         android:label="title_favourites"
         tools:layout="@layout/fragment_favourites" />
 
     <fragment
         android:id="@+id/navigation_user"
-        android:name="smart.estate.app.presentation.user.UserFragment"
+        android:name="smart.estate.app.presentation.user.view.UserFragment"
         android:label="title_user"
         tools:layout="@layout/fragment_user" />
 
