@@ -5,7 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import smart.estate.app.R
-import smart.estate.app.data.model.Estate
+import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model_processing.TextProcessor
 
 class EstateViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -21,11 +22,16 @@ class EstateViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     private val viewPager by lazy { view.findViewById<ViewPager2>(R.id.photos_view_pager) }
 
-    fun bind(estate: Estate) {
-        costEstateTextView.text = estate.price.toString()
-        totalAreaEstateTextView.text = estate.totalArea.toString()
+    fun bind(estate: DataClass) {
+        costEstateTextView.text = TextProcessor().convertCostToNiceText(estate.price)
+        totalAreaEstateTextView.text = TextProcessor().convertAreaToNiceText(estate.totalArea)
         addressEstateTextView.text = "${estate.longitude} + ${estate.latitude} + ${estate.region}"
-        timePublishedEstateTextView.text = "${estate.time}"
+        timePublishedEstateTextView.text = TextProcessor().convertDateToNiceText(
+            day = estate.day,
+            month = estate.month,
+            year = estate.year,
+            time = estate.time
+        )
         pageNumber.text = "${estate.id}"
 
         val estateViewPagerAdapter = EstateViewPagerAdapter(estate.photos)

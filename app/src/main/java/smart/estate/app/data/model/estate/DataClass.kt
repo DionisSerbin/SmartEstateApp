@@ -1,8 +1,9 @@
-package smart.estate.app.data.model
+package smart.estate.app.data.model.estate
 
 import com.google.gson.annotations.SerializedName
+import smart.estate.app.data.model.estate.DataValidatorInterface
 
-data class Estate(
+data class DataClass(
     @SerializedName("estate_id")
     var id: Int,
     @SerializedName("estate_price")
@@ -37,4 +38,4 @@ data class Estate(
     var objectType: Int,
     @SerializedName("estate_photos")
     var photos: List<Int>
-)
+) : DataValidatorInterface()

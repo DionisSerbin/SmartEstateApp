@@ -45,6 +45,7 @@ class SignInFragment : Fragment() {
                 (activity as SignInActivity).getFirebaseAuthInstance()
                     .signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        (activity as SignInActivity).prefs.putMail(email)
                         val intent = Intent(signInButton.context, MainActivity::class.java)
                         startActivity(intent)
                     } else {

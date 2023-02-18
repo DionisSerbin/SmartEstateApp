@@ -19,13 +19,21 @@
         android:id="@+id/navigation_classical_search"
         android:name="smart.estate.app.presentation.classical.search.view.ClassicalSearchFragment"
         android:label="title_classical_search"
-        tools:layout="@layout/fragment_classical_search" />
+        tools:layout="@layout/fragment_classical_search" >
+        <action
+            android:id="@+id/action_navigation_classical_search_to_filtersClassicalSearchFragment"
+            app:destination="@id/filtersClassicalSearchFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_estate"
-        android:name="smart.estate.app.presentation.add.estate.AddEstateFragment"
+        android:name="smart.estate.app.presentation.add.estate.view.AddEstateFragment"
         android:label="title_add_estate"
-        tools:layout="@layout/fragment_add_estate" />
+        tools:layout="@layout/fragment_add_estate" >
+        <action
+            android:id="@+id/action_navigation_add_estate_to_addingEstateFragment"
+            app:destination="@id/addingEstateFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favourites"
@@ -37,7 +45,14 @@
         android:id="@+id/navigation_user"
         android:name="smart.estate.app.presentation.user.view.UserFragment"
         android:label="title_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_navigation_user_to_userEstatesFragment"
+            app:destination="@id/userEstatesFragment" />
+        <action
+            android:id="@+id/action_navigation_user_to_userSettingsFragment"
+            app:destination="@id/userSettingsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/predictFragment"
@@ -56,5 +71,43 @@
         android:name="smart.estate.app.presentation.smart.search.view.EstateCostPredictedFragment"
         android:label="fragment_estate_cost_predicted"
         tools:layout="@layout/fragment_estate_cost_predicted" />
+    <fragment
+        android:id="@+id/userEstatesFragment"
+        android:name="smart.estate.app.presentation.user.view.UserEstatesFragment"
+        android:label="fragment_user_estates"
+        tools:layout="@layout/fragment_user_estates" >
+        <action
+            android:id="@+id/action_userEstatesFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+    </fragment>
+    <fragment
+        android:id="@+id/addingEstateFragment"
+        android:name="smart.estate.app.presentation.add.estate.view.AddingEstateFragment"
+        android:label="fragment_adding_estate"
+        tools:layout="@layout/fragment_adding_estate" >
+        <action
+            android:id="@+id/action_addingEstateFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+        <action
+            android:id="@+id/action_addingEstateFragment_to_navigation_add_estate"
+            app:destination="@id/navigation_add_estate" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSettingsFragment"
+        android:name="smart.estate.app.presentation.user.view.UserSettingsFragment"
+        android:label="fragment_user_settings"
+        tools:layout="@layout/fragment_user_settings" >
+        <action
+            android:id="@+id/action_userSettingsFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+    </fragment>
+    <fragment
+        android:id="@+id/filtersClassicalSearchFragment"
+        android:name="smart.estate.app.presentation.classical.search.view.FiltersClassicalSearchFragment"
+        android:label="FiltersClassicalSearchFragment" >
+        <action
+            android:id="@+id/action_filtersClassicalSearchFragment_to_navigation_classical_search"
+            app:destination="@id/navigation_classical_search" />
+    </fragment>
 
 </navigation>

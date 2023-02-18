@@ -1,14 +1,18 @@
-package smart.estate.app.data.model
+package smart.estate.app.data.model.estate
 
 import com.google.gson.annotations.SerializedName
 
-data class SmartEstateParameters(
+data class EstateFilters(
     @SerializedName("objectType")
     var objectType: Int,
     @SerializedName("city")
     var city: String,
     @SerializedName("houseType")
     var houseType: Int,
+    @SerializedName("priceFrom")
+    var priceFrom: String,
+    @SerializedName("priceTo")
+    var priceTo: String,
     @SerializedName("levelFrom")
     var levelFrom: String,
     @SerializedName("levelTo")
@@ -29,4 +33,4 @@ data class SmartEstateParameters(
     var kitchenAreaFrom: String,
     @SerializedName("kitchenAreaTo")
     var kitchenAreaTo: String
-)
+) : DataValidatorInterface()

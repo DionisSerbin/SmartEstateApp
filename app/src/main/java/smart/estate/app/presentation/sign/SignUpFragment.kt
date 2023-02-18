@@ -43,6 +43,7 @@ class SignUpFragment : Fragment() {
                     (activity as SignInActivity).getFirebaseAuthInstance()
                         .createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                             if (it.isSuccessful) {
+                                (activity as SignInActivity).prefs.putMail(email)
                                 (activity as EntryFragment.FragmentCreation).createSignInFragment()
                             } else {
                                 Toast.makeText(

@@ -1,31 +1,36 @@
 package smart.estate.app.presentation.user.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
+import smart.estate.app.data.model.Prefs
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
+import smart.estate.app.presentation.sign.SignInActivity
 import smart.estate.app.presentation.user.viewmodel.UserViewModel
 
-@AndroidEntryPoint
 class UserFragment : Fragment(R.layout.fragment_user) {
 
-    private val userViewModel: UserViewModel by viewModels()
-
-    private val estateRecyclerAdapter = EstateRecyclerAdapter()
+    private lateinit var prefs: Prefs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,45 +42,45 @@ class UserFragment : Fragment(R.layout.fragment_user) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = context?.let { Prefs(it) }!!
 
-        view.findViewById<RecyclerView>(R.id.user_estate_recycler_view).apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = estateRecyclerAdapter
+        val userNameTextView = view.findViewById<TextView>(R.id.user_name_text_view)
+        val userLoginTextView = view.findViewById<TextView>(R.id.user_login_text_view)
+        val userMailTextView = view.findViewById<TextView>(R.id.user_mail_text_view)
+
+        val nameSP = prefs.getName()
+        val loginSP = prefs.getLogin()
+        val mailSP = prefs.getMail()
+
+        if (nameSP != null) {
+            userNameTextView.text = nameSP
+        }
+        if (loginSP != null) {
+            userLoginTextView.text = loginSP
+        }
+        if (mailSP != null) {
+            userMailTextView.text = mailSP
         }
 
-        val progressDialog = view.findViewById<ProgressBar>(R.id.progressDialog)
-
-        estateRecyclerAdapter.addLoadStateListener { loadState ->
-            if ((loadState.refresh is LoadState.Loading)||(loadState.append is LoadState.Loading)){
-                progressDialog.isVisible = true
-            } else {
-                viewLifecycleOwner.lifecycleScope.launch{
-                    delay(DELAY_TIME)
-                    progressDialog.isVisible = false
-                }
-                val errorState = when {
-                    loadState.append is LoadState.Error -> loadState.append as LoadState.Error
-                    loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
-                    loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
-                    else -> null
-                }
-                errorState?.let {
-                    Toast.makeText(context, it.error.toString(), Toast.LENGTH_LONG).show()
-                }
-            }
+        val yourEstatesButton = view.findViewById<MaterialButton>(R.id.your_estates_button)
+        yourEstatesButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_user_to_userEstatesFragment)
         }
 
-        viewLifecycleOwner.lifecycleScope.launch{
-            userViewModel.getEstates().observe(viewLifecycleOwner){
-                it?.let {
-                    estateRecyclerAdapter.submitData(lifecycle, it)
-                }
-            }
+        val exitButton = view.findViewById<MaterialButton>(R.id.log_out_button)
+        exitButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(exitButton.context, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
+        val settingsButton = view.findViewById<MaterialButton>(R.id.settings_button)
+        settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_user_to_userSettingsFragment)
         }
     }
 
     companion object {
-        const val DELAY_TIME: Long = 500
         @JvmStatic
         fun newInstance() = UserFragment()
     }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/margin_horizontal_screen"
     android:paddingVertical="@dimen/margin_horizontal_screen"
-    tools:context=".presentation.user.UserSettingsFragment">
+    tools:context=".presentation.user.view.UserSettingsFragment">
 
     <TextView
         android:id="@+id/change_settings_text_view"
@@ -42,10 +42,11 @@
         app:layout_constraintTop_toBottomOf="@id/user_name_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input_edit_text"
             style="@style/TextViewRegularSecondarySmallStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/user_name_text_input_text" />
+            android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,55 +72,17 @@
         app:layout_constraintTop_toBottomOf="@id/user_login_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_input_edit_text"
             style="@style/TextViewRegularSecondarySmallStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/user_login_text_input_text" />
+            android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/user_mail_text_view"
-        style="@style/TextViewSemiBoldMainSmallStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_view_medium"
-        android:text="@string/user_mail_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_input" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mail_input"
-        style="@style/TextInputViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_view_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_mail_text_view">
-
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/TextViewRegularSecondarySmallStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/user_mail_text_input_text" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/user_photo_text_view"
-        style="@style/TextViewSemiBoldMainSmallStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_view_medium"
-        android:text="Изменить фото"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mail_input" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/predict_cost_button"
+        android:id="@+id/complete_settings_button"
         style="@style/MaterialButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

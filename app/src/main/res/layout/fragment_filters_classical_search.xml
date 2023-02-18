@@ -32,31 +32,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_view_large"
             android:gravity="center"
+            app:checkedButton="@+id/button_all"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/classical_search_bar_text_view"
             app:singleSelection="true">
 
             <Button
-                android:id="@+id/classical_button1"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_all"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/all_estates_text" />
 
             <Button
-                android:id="@+id/classical_button2"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_second_using"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/secondary" />
 
             <Button
-                android:id="@+id/classical_button3"
-                style="@style/OutlineButtonRegularTexViewStyle"
+                android:id="@+id/button_new_estate"
+                style="@style/OutlineButtonRegularTexViewNoTextColorStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/toggle_button_selector"
                 android:text="@string/new_estate_text" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -82,10 +86,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_where_to_find_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_city_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/city_text" />
+                android:hint="@string/city_text"
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +123,8 @@
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/any_house_type_text" />
+                android:hint="@string/any_house_type_text"
+                android:inputType="none"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,10 +151,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_cost_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_cost_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,10 +172,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_cost_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_cost_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,10 +204,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_level_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_level_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -212,10 +225,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_level_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_level_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -242,10 +257,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_levels_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_levels_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -261,10 +278,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_levels_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_levels_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -291,10 +310,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_number_of_rooms_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_number_of_rooms_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -310,10 +331,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_number_of_rooms_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_number_of_rooms_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -340,10 +363,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_total_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_total_area_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -359,10 +384,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_total_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_total_area_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -389,10 +416,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_kitchen_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_kitchen_area_from_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/from_input_text" />
+                android:hint="@string/from_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -408,10 +437,12 @@
             app:layout_constraintTop_toBottomOf="@id/classical_kitchen_area_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/classical_kitchen_area_to_input_edit_text"
                 style="@style/TextViewRegularSecondarySmallStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/to_input_text" />
+                android:hint="@string/to_input_text"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -1,21 +1,20 @@
 package smart.estate.app.data.local.test
 
-import android.graphics.drawable.Drawable
 import smart.estate.app.R
-import smart.estate.app.data.model.Estate
-import smart.estate.app.data.model.SmartEstateParameters
+import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.SmartDataClassParameters
 import javax.inject.Inject
 
 class TestService @Inject constructor() : TestInterface {
 
-    override suspend fun getPrediction(smartEstateParameters: SmartEstateParameters): Pair<Long, Long> {
+    override suspend fun getPrediction(smartEstateParameters: SmartDataClassParameters): Pair<Long, Long> {
         return Pair((5..10).random().toLong(), (5..10).random().toLong())
     }
 
-    override suspend fun getEstates(page: Int): List<Estate> {
-        val estateList: MutableList<Estate> = mutableListOf()
+    override suspend fun getEstates(page: Int): List<DataClass> {
+        val estateList: MutableList<DataClass> = mutableListOf()
         for (i in 0..9) {
-            val estate = Estate(
+            val estate = DataClass(
                 id = (page - 1) * 10 + i,
                 price = (5..10).random().toFloat(),
                 year = (2019..2022).random(),

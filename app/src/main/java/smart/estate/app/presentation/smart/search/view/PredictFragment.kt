@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import smart.estate.app.R
 import smart.estate.app.presentation.smart.search.viewmodel.PredictViewModel
-import smart.estate.app.presentation.smart.search.viewmodel.SmartSearchViewModel
+import smart.estate.app.presentation.smart.search.viewmodel.SaveSmartSearchViewModel
 
 @AndroidEntryPoint
 class PredictFragment : Fragment() {
@@ -40,19 +40,18 @@ class PredictFragment : Fragment() {
         frameAnimation = loadingImageView.background as AnimationDrawable
         frameAnimation.start()
 
-        val smartSearchViewModel =
-            ViewModelProvider(requireActivity()).get(SmartSearchViewModel::class.java)
+        val saveSmartSearchViewModel =
+            ViewModelProvider(requireActivity()).get(SaveSmartSearchViewModel::class.java)
 
-        val smartEstateParameters = smartSearchViewModel.estateParameters.value
+        val smartEstateParameters = saveSmartSearchViewModel.estateParameters.value
 
         val previousPageButton =
             view.findViewById<MaterialButton>(R.id.smart_search_previous_page_button)
 
         previousPageButton.setOnClickListener {
-            smartSearchViewModel.saveNullEstateParameters()
+            saveSmartSearchViewModel.saveNullEstateParameters()
             findNavController().navigate(R.id.action_predictFragment_to_navigation_smart_search_home)
         }
-
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
@@ -63,7 +62,7 @@ class PredictFragment : Fragment() {
                     }
                 }
 
-                smartSearchViewModel.saveCostPredictedPair(pair.await()!!)
+                saveSmartSearchViewModel.saveCostPredictedPair(pair.await()!!)
                 withContext(Dispatchers.Main) {
                     findNavController().navigate(R.id.action_predictFragment_to_estateCostPredictedFragment)
                 }

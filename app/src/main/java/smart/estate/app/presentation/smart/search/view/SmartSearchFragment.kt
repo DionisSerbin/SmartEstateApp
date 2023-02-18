@@ -13,14 +13,14 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.textfield.TextInputEditText
 import smart.estate.app.R
-import smart.estate.app.data.model.SmartEstateParameters
-import smart.estate.app.presentation.smart.search.viewmodel.SmartSearchViewModel
-import smart.estate.app.utils.Validator
+import smart.estate.app.data.model.estate.SmartDataClassParameters
+import smart.estate.app.presentation.smart.search.viewmodel.SaveSmartSearchViewModel
+import smart.estate.app.data.model_processing.Validator
 
 
-class SmartSearchFragment : Fragment() {
+class SmartSearchFragment : Fragment(R.layout.fragment_smart_search) {
 
-    private val smartSearchViewModel: SmartSearchViewModel by activityViewModels()
+    private val saveSmartSearchViewModel: SaveSmartSearchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -100,7 +100,7 @@ class SmartSearchFragment : Fragment() {
             val kitchenAreaTo =
                 view.findViewById<TextInputEditText>(R.id.kitchen_area_to_input_edit_text).text.toString()
 
-            val smartEstate = SmartEstateParameters(
+            val smartEstate = SmartDataClassParameters(
                 city = cityInput,
                 objectType = objectType,
                 houseType = houseTypeInt,
@@ -115,8 +115,13 @@ class SmartSearchFragment : Fragment() {
                 kitchenAreaFrom = kitchenAreaFrom,
                 kitchenAreaTo = kitchenAreaTo
             )
-            if (Validator(smartEstate = smartEstate, view = view, context = context).isValidate()) {
-                smartSearchViewModel.saveEstateParameters(smartEstate)
+            if (Validator(
+                    dataValidatorInterface = smartEstate,
+                    view = view,
+                    context = context
+                ).isValidate()
+            ) {
+                saveSmartSearchViewModel.saveEstateParameters(smartEstate)
                 findNavController().navigate(R.id.action_navigation_smart_search_home_to_predictFragment)
             }
 
@@ -126,11 +131,11 @@ class SmartSearchFragment : Fragment() {
 
     companion object {
         const val anyType = "Любое"
-        val otherType = "Другие"
-        val panelType = "Панельный"
-        val monoType = "Монолитный"
-        val brickType = "Кирпичный"
-        val blockType = "Блочный"
-        val woodenType = "Деревянный"
+        const val otherType = "Другие"
+        const val panelType = "Панельный"
+        const val monoType = "Монолитный"
+        const val brickType = "Кирпичный"
+        const val blockType = "Блочный"
+        const val woodenType = "Деревянный"
     }
 }

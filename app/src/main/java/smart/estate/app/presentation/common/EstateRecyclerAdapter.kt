@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import smart.estate.app.R
-import smart.estate.app.data.model.Estate
+import smart.estate.app.data.model.estate.DataClass
 import smart.estate.app.data.model_processing.EstateComparator
 
-class EstateRecyclerAdapter : PagingDataAdapter<Estate, EstateViewHolder>(
+class EstateRecyclerAdapter : PagingDataAdapter<DataClass, EstateViewHolder>(
     EstateComparator()
 ) {
     override fun onBindViewHolder(holder: EstateViewHolder, position: Int) {

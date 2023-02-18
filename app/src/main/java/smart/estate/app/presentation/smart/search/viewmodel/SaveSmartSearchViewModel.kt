@@ -3,16 +3,16 @@ package smart.estate.app.presentation.smart.search.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import smart.estate.app.data.model.SmartEstateParameters
+import smart.estate.app.data.model.estate.SmartDataClassParameters
 
-class SmartSearchViewModel : ViewModel() {
+class SaveSmartSearchViewModel : ViewModel() {
 
-    private var _estateParameters = MutableLiveData<SmartEstateParameters?>()
+    private var _estateParameters = MutableLiveData<SmartDataClassParameters?>()
     val estateParameters = _estateParameters
     private var _costPredictedPair = MutableLiveData<Pair<Long, Long>?>()
     val costPredictedPair = _costPredictedPair
 
-    fun saveEstateParameters(estateParameters: SmartEstateParameters) {
+    fun saveEstateParameters(estateParameters: SmartDataClassParameters) {
         _estateParameters.value = estateParameters
     }
 

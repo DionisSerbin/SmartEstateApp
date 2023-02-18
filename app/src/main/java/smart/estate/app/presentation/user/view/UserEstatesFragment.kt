@@ -1,4 +1,4 @@
-package smart.estate.app.presentation.classical.search.view
+package smart.estate.app.presentation.user.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,27 +8,24 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
-import smart.estate.app.presentation.classical.search.viewmodel.ClassicalSearchViewModel
-import smart.estate.app.presentation.classical.search.viewmodel.SaveFiltersViewModel
-
+import smart.estate.app.presentation.user.viewmodel.UserViewModel
 
 @AndroidEntryPoint
-class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
+class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
 
-    private val classicalSearchViewModel: ClassicalSearchViewModel by viewModels()
-
+    private val userViewModel: UserViewModel by viewModels()
 
     private val estateRecyclerAdapter = EstateRecyclerAdapter()
 
@@ -36,16 +33,21 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_classical_search, container, false)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_user_estates, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val estateFiltersViewModel =
-            ViewModelProvider(requireActivity()).get(SaveFiltersViewModel::class.java)
+        val previousButtonToUserPage = view.findViewById<MaterialButton>(R.id.user_previous_page_button)
 
-        view.findViewById<RecyclerView>(R.id.classical_estate_recycler_view).apply {
+        previousButtonToUserPage.setOnClickListener {
+            findNavController().navigate(R.id.action_userEstatesFragment_to_navigation_user)
+
+        }
+
+        view.findViewById<RecyclerView>(R.id.user_estate_recycler_view).apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = estateRecyclerAdapter
         }
@@ -53,10 +55,10 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
         val progressDialog = view.findViewById<ProgressBar>(R.id.progressDialog)
 
         estateRecyclerAdapter.addLoadStateListener { loadState ->
-            if ((loadState.refresh is LoadState.Loading) || (loadState.append is LoadState.Loading)) {
+            if ((loadState.refresh is LoadState.Loading)||(loadState.append is LoadState.Loading)){
                 progressDialog.isVisible = true
             } else {
-                viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.lifecycleScope.launch{
                     delay(DELAY_TIME)
                     progressDialog.isVisible = false
                 }
@@ -72,29 +74,18 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            if (estateFiltersViewModel.estateFilters.value != null) {
-                classicalSearchViewModel.getEstates().observe(viewLifecycleOwner) {
-                    it?.let {
-                        estateRecyclerAdapter.submitData(lifecycle, it)
-                    }
-                }
-            } else {
-                classicalSearchViewModel.getEstates().observe(viewLifecycleOwner) {
-                    it?.let {
-                        estateRecyclerAdapter.submitData(lifecycle, it)
-                    }
+        viewLifecycleOwner.lifecycleScope.launch{
+            userViewModel.getEstates().observe(viewLifecycleOwner){
+                it?.let {
+                    estateRecyclerAdapter.submitData(lifecycle, it)
                 }
             }
         }
     }
 
     companion object {
-
-        const val DELAY_TIME: Long = 1000
-
+        const val DELAY_TIME: Long = 500
         @JvmStatic
-        fun newInstance() = ClassicalSearchFragment()
-
+        fun newInstance() = UserEstatesFragment()
     }
 }

@@ -61,10 +61,12 @@
     <string name="favourites_bar_text">Избранное</string>
 
     <!--User fragment-->
-    <string name="change_user_settings_text">Изменить данные</string>
+    <string name="change_user_settings_text">Добавить данные</string>
     <string name="user_login_text">Логин</string>
     <string name="user_mail_text">Почта</string>
     <string name="user_estates_text">Ваши объявления</string>
+    <string name="add_user_login_text">Добавьте логин</string>
+    <string name="add_user_name_text">Добавьте имя</string>
 
     <!--User Settings fragment-->
     <string name="user_name_text">Имя</string>
@@ -84,4 +86,7 @@
     <string name="add_rooms_text">Добавьте количество комнат</string>
     <string name="add_kitchen_area_text">Добавьте площадь кухни</string>
     <string name="add_estate_ready_text">Готово</string>
+
+    <!--Adding Estate fragment-->
+    <string name="adding_estate_text">Добавляем ваше\nобъявление</string>
 </resources>
