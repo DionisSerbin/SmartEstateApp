@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/classical_search"
+    app:startDestination="@id/navigation_classical_search">
+
+    <fragment
+        android:id="@+id/navigation_classical_search"
+        android:name="smart.estate.app.presentation.classical.search.view.ClassicalSearchFragment"
+        android:label="title_classical_search"
+        tools:layout="@layout/fragment_classical_search" >
+        <action
+            android:id="@+id/action_navigation_classical_search_to_filtersClassicalSearchFragment"
+            app:destination="@id/filtersClassicalSearchFragment" />
+        <action
+            android:id="@+id/action_navigation_classical_search_to_classicalSearchEstateFragment"
+            app:destination="@id/classicalSearchEstateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filtersClassicalSearchFragment"
+        android:name="smart.estate.app.presentation.classical.search.view.FiltersClassicalSearchFragment"
+        android:label="FiltersClassicalSearchFragment" >
+        <action
+            android:id="@+id/action_filtersClassicalSearchFragment_to_navigation_classical_search"
+            app:destination="@id/navigation_classical_search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/classicalSearchEstateFragment"
+        android:name="smart.estate.app.presentation.estate.ClassicalSearchEstateFragment"
+        android:label="fragment_estate"
+        tools:layout="@layout/fragment_classical_search_estate" >
+        <action
+            android:id="@+id/action_classicalSearchEstateFragment_to_navigation_classical_search"
+            app:destination="@id/navigation_classical_search" />
+    </fragment>
+
+</navigation>

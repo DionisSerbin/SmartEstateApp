@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_estate"
+    app:startDestination="@+id/navigation_add_estate">
+
+    <fragment
+        android:id="@+id/navigation_add_estate"
+        android:name="smart.estate.app.presentation.add.estate.view.AddEstateFragment"
+        android:label="title_add_estate"
+        tools:layout="@layout/fragment_add_estate" >
+        <action
+            android:id="@+id/action_navigation_add_estate_to_addingEstateFragment"
+            app:destination="@id/addingEstateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addingEstateFragment"
+        android:name="smart.estate.app.presentation.add.estate.view.AddingEstateFragment"
+        android:label="fragment_adding_estate"
+        tools:layout="@layout/fragment_adding_estate" >
+        <action
+            android:id="@+id/action_addingEstateFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+        <action
+            android:id="@+id/action_addingEstateFragment_to_navigation_add_estate"
+            app:destination="@id/navigation_add_estate" />
+    </fragment>
+
+</navigation>

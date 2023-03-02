@@ -5,11 +5,12 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import smart.estate.app.R
+import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.databinding.ActivityMainBinding
-import smart.estate.app.presentation.smart.search.view.PredictFragment
-import smart.estate.app.presentation.smart.search.view.SmartSearchFragment
+import smart.estate.app.presentation.estate.EstateFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

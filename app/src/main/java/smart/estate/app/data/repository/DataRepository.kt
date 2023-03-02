@@ -1,7 +1,7 @@
 package smart.estate.app.data.repository
 
 import smart.estate.app.data.local.test.TestService
-import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.model.estate.SmartDataClassParameters
 import javax.inject.Inject
 
@@ -10,7 +10,7 @@ class DataRepository @Inject constructor(private val testService: TestService){
         return testService.getPrediction(smartEstateParameters)
     }
 
-    suspend fun getEstates(page: Int): List<DataClass> {
+    suspend fun getEstates(page: Int): List<Estate> {
         return testService.getEstates(page)
     }
 }

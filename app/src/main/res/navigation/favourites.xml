@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favourites"
+    app:startDestination="@+id/navigation_favourites">
+
+    <fragment
+        android:id="@+id/navigation_favourites"
+        android:name="smart.estate.app.presentation.favourites.view.FavouritesFragment"
+        android:label="title_favourites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_navigation_favourites_to_favouritesEstateFragment"
+            app:destination="@id/favouritesEstateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouritesEstateFragment"
+        android:name="smart.estate.app.presentation.estate.FavouritesEstateFragment"
+        android:label="fragment_favourites_estate"
+        tools:layout="@layout/fragment_estate" >
+        <action
+            android:id="@+id/action_favouritesEstateFragment_to_navigation_favourites"
+            app:destination="@id/navigation_favourites" />
+    </fragment>
+
+</navigation>

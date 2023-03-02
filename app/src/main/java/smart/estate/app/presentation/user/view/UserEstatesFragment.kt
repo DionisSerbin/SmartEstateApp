@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -20,6 +21,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
+import smart.estate.app.presentation.common.EstateViewModel
 import smart.estate.app.presentation.user.viewmodel.UserViewModel
 
 @AndroidEntryPoint
@@ -27,18 +29,21 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
 
     private val userViewModel: UserViewModel by viewModels()
 
-    private val estateRecyclerAdapter = EstateRecyclerAdapter()
+    private val estateViewModel: EstateViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_estates, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        estateViewModel.saveIdReturned(R.layout.fragment_user_estates)
+
+        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
 
         val previousButtonToUserPage = view.findViewById<MaterialButton>(R.id.user_previous_page_button)
 

@@ -51,95 +51,95 @@ class FiltersClassicalSearchFragment : Fragment(R.layout.fragment_filters_classi
                     }
                 }
             }
+        }
 
-            val houseTypes = resources.getStringArray(R.array.house_types)
-            val houseTypeAdapter =
-                context?.let { ArrayAdapter(it, R.layout.dropdown_item, houseTypes) }
-            val houseTypeInput =
-                view.findViewById<AutoCompleteTextView>(R.id.filled_exposed_dropdown)
-            houseTypeInput.setAdapter(houseTypeAdapter)
+        val houseTypes = resources.getStringArray(R.array.house_types)
+        val houseTypeAdapter =
+            context?.let { ArrayAdapter(it, R.layout.dropdown_item, houseTypes) }
+        val houseTypeInput =
+            view.findViewById<AutoCompleteTextView>(R.id.classical_filled_exposed_dropdown)
+        houseTypeInput.setAdapter(houseTypeAdapter)
 
-            val filtersReadyButton =
-                view.findViewById<MaterialButton>(R.id.classical_filters_ready_button)
+        val filtersReadyButton =
+            view.findViewById<MaterialButton>(R.id.classical_filters_ready_button)
 
-            filtersReadyButton.setOnClickListener {
-                val cityInput =
-                    view.findViewById<TextInputEditText>(R.id.classical_city_input_edit_text).text.toString()
+        filtersReadyButton.setOnClickListener {
+            val cityInput =
+                view.findViewById<TextInputEditText>(R.id.classical_city_input_edit_text).text.toString()
 
-                val houseTypeInt = when (houseTypeInput.text.toString()) {
-                    anyType -> -1
-                    otherType -> 0
-                    panelType -> 1
-                    monoType -> 2
-                    brickType -> 3
-                    blockType -> 4
-                    woodenType -> 5
-                    else -> {
-                        -2
-                    }
+            val houseTypeInt = when (houseTypeInput.text.toString()) {
+                anyType -> -1
+                otherType -> 0
+                panelType -> 1
+                monoType -> 2
+                brickType -> 3
+                blockType -> 4
+                woodenType -> 5
+                else -> {
+                    -2
                 }
+            }
 
-                val priceFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_cost_from_input_edit_text).text.toString()
+            val priceFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_cost_from_input_edit_text).text.toString()
 
-                val priceTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_cost_to_input_edit_text).text.toString()
+            val priceTo =
+                view.findViewById<TextInputEditText>(R.id.classical_cost_to_input_edit_text).text.toString()
 
-                val levelFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_level_from_input_edit_text).text.toString()
-                val levelTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_level_to_input_edit_text).text.toString()
+            val levelFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_level_from_input_edit_text).text.toString()
+            val levelTo =
+                view.findViewById<TextInputEditText>(R.id.classical_level_to_input_edit_text).text.toString()
 
-                val levelsFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_levels_from_input_edit_text).text.toString()
-                val levelsTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_levels_to_input_edit_text).text.toString()
+            val levelsFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_levels_from_input_edit_text).text.toString()
+            val levelsTo =
+                view.findViewById<TextInputEditText>(R.id.classical_levels_to_input_edit_text).text.toString()
 
-                val numberOfRoomsFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_number_of_rooms_from_input_edit_text).text.toString()
-                val numberOfRoomsTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_number_of_rooms_to_input_edit_text).text.toString()
+            val numberOfRoomsFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_number_of_rooms_from_input_edit_text).text.toString()
+            val numberOfRoomsTo =
+                view.findViewById<TextInputEditText>(R.id.classical_number_of_rooms_to_input_edit_text).text.toString()
 
-                val totalAreaFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_total_area_from_input_edit_text).text.toString()
-                val totalAreaTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_total_area_to_input_edit_text).text.toString()
+            val totalAreaFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_total_area_from_input_edit_text).text.toString()
+            val totalAreaTo =
+                view.findViewById<TextInputEditText>(R.id.classical_total_area_to_input_edit_text).text.toString()
 
-                val kitchenAreaFrom =
-                    view.findViewById<TextInputEditText>(R.id.classical_kitchen_area_from_input_edit_text).text.toString()
-                val kitchenAreaTo =
-                    view.findViewById<TextInputEditText>(R.id.classical_kitchen_area_to_input_edit_text).text.toString()
+            val kitchenAreaFrom =
+                view.findViewById<TextInputEditText>(R.id.classical_kitchen_area_from_input_edit_text).text.toString()
+            val kitchenAreaTo =
+                view.findViewById<TextInputEditText>(R.id.classical_kitchen_area_to_input_edit_text).text.toString()
 
-                val estateFilters = EstateFilters(
-                    priceFrom = priceFrom,
-                    priceTo = priceTo,
-                    city = cityInput,
-                    objectType = objectType,
-                    houseType = houseTypeInt,
-                    levelFrom = levelFrom,
-                    levelTo = levelTo,
-                    levelsFrom = levelsFrom,
-                    levelsTo = levelsTo,
-                    numberOfRoomsFrom = numberOfRoomsFrom,
-                    numberOfRoomsTo = numberOfRoomsTo,
-                    totalAreaFrom = totalAreaFrom,
-                    totalAreaTo = totalAreaTo,
-                    kitchenAreaFrom = kitchenAreaFrom,
-                    kitchenAreaTo = kitchenAreaTo
-                )
-                if (Validator(
-                        dataValidatorInterface = estateFilters,
-                        view = view,
-                        context = context
-                    ).isValidate()
-                ) {
-                    saveFiltersViewModel.saveEstateFilters(estateFilters)
-                    findNavController().navigate(R.id.action_filtersClassicalSearchFragment_to_navigation_classical_search)
-                }
-
+            val estateFilters = EstateFilters(
+                priceFrom = priceFrom,
+                priceTo = priceTo,
+                city = cityInput,
+                objectType = objectType,
+                houseType = houseTypeInt,
+                levelFrom = levelFrom,
+                levelTo = levelTo,
+                levelsFrom = levelsFrom,
+                levelsTo = levelsTo,
+                numberOfRoomsFrom = numberOfRoomsFrom,
+                numberOfRoomsTo = numberOfRoomsTo,
+                totalAreaFrom = totalAreaFrom,
+                totalAreaTo = totalAreaTo,
+                kitchenAreaFrom = kitchenAreaFrom,
+                kitchenAreaTo = kitchenAreaTo
+            )
+            if (Validator(
+                    dataValidatorInterface = estateFilters,
+                    view = view,
+                    context = context
+                ).isValidate()
+            ) {
+                saveFiltersViewModel.saveEstateFilters(estateFilters)
+                findNavController().navigate(R.id.action_filtersClassicalSearchFragment_to_navigation_classical_search)
             }
 
         }
+
     }
 
 

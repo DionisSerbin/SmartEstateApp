@@ -1,14 +1,14 @@
 package smart.estate.app.data.model_processing
 
 import androidx.recyclerview.widget.DiffUtil
-import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.Estate
 
-class EstateComparator: DiffUtil.ItemCallback<DataClass>() {
-    override fun areItemsTheSame(oldItem: DataClass, newItem: DataClass): Boolean {
+class EstateComparator: DiffUtil.ItemCallback<Estate>() {
+    override fun areItemsTheSame(oldItem: Estate, newItem: Estate): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: DataClass, newItem: DataClass): Boolean {
+    override fun areContentsTheSame(oldItem: Estate, newItem: Estate): Boolean {
         return oldItem == newItem
     }
 

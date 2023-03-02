@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.307" />
         <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/ic_add_estate_nav.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.158" />
         <entry key="app/src/main/res/drawable/ic_entry_mail.xml" value="0.3335" />
         <entry key="app/src/main/res/drawable/ic_estate_logo.xml" value="0.1" />
@@ -22,16 +23,19 @@
         <entry key="app/src/main/res/layout/fragment_add_estate.xml" value="0.1894630192502533" />
         <entry key="app/src/main/res/layout/fragment_adding_estate.xml" value="0.2757352941176471" />
         <entry key="app/src/main/res/layout/fragment_classical_search.xml" value="0.10093299755151719" />
+        <entry key="app/src/main/res/layout/fragment_classical_search_estate.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_entry.xml" value="0.2284310806407762" />
         <entry key="app/src/main/res/layout/fragment_estate.xml" value="0.17751159667968747" />
         <entry key="app/src/main/res/layout/fragment_estate_cost_predicted.xml" value="0.16632696081090864" />
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/fragment_favourites_estate.xml" value="0.20572916666666666" />
         <entry key="app/src/main/res/layout/fragment_filters_classical_search.xml" value="0.3324607329842932" />
         <entry key="app/src/main/res/layout/fragment_predict.xml" value="0.21149360546167345" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.24575805664062497" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25705413818359363" />
         <entry key="app/src/main/res/layout/fragment_smart_search.xml" value="0.20482025146484378" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.2450027465820313" />
+        <entry key="app/src/main/res/layout/fragment_user_estate.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_user_estates.xml" value="0.2644927536231884" />
         <entry key="app/src/main/res/layout/fragment_user_settings.xml" value="0.2842809364548495" />
         <entry key="app/src/main/res/layout/house_type_dropdown_menu.xml" value="0.3066123188405797" />

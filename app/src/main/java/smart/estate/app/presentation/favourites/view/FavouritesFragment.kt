@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -19,13 +20,15 @@ import kotlinx.coroutines.launch
 import smart.estate.app.R
 import smart.estate.app.presentation.favourites.viewmodel.FavouritesViewModel
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
+import smart.estate.app.presentation.common.EstateViewModel
 
 @AndroidEntryPoint
 class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
     private val favouritesViewModel: FavouritesViewModel by viewModels()
 
-    private val estateRecyclerAdapter = EstateRecyclerAdapter()
+    private val estateViewModel: EstateViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +40,9 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        estateViewModel.saveIdReturned(R.layout.fragment_favourites)
+
+        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
 
         view.findViewById<RecyclerView>(R.id.favourites_estate_recycler_view).apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

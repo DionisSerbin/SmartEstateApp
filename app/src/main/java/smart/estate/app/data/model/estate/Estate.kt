@@ -2,8 +2,9 @@ package smart.estate.app.data.model.estate
 
 import com.google.gson.annotations.SerializedName
 import smart.estate.app.data.model.estate.DataValidatorInterface
+import java.io.Serializable
 
-data class DataClass(
+data class Estate(
     @SerializedName("estate_id")
     var id: Int,
     @SerializedName("estate_price")

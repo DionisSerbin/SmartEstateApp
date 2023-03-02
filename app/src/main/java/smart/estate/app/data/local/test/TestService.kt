@@ -1,7 +1,7 @@
 package smart.estate.app.data.local.test
 
 import smart.estate.app.R
-import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.model.estate.SmartDataClassParameters
 import javax.inject.Inject
 
@@ -11,10 +11,10 @@ class TestService @Inject constructor() : TestInterface {
         return Pair((5..10).random().toLong(), (5..10).random().toLong())
     }
 
-    override suspend fun getEstates(page: Int): List<DataClass> {
-        val estateList: MutableList<DataClass> = mutableListOf()
+    override suspend fun getEstates(page: Int): List<Estate> {
+        val estateList: MutableList<Estate> = mutableListOf()
         for (i in 0..9) {
-            val estate = DataClass(
+            val estate = Estate(
                 id = (page - 1) * 10 + i,
                 price = (5..10).random().toFloat(),
                 year = (2019..2022).random(),

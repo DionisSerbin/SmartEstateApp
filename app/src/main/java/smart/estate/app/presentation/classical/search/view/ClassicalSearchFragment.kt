@@ -12,13 +12,16 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
+import smart.estate.app.presentation.common.EstateViewModel
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
 import smart.estate.app.presentation.classical.search.viewmodel.ClassicalSearchViewModel
 import smart.estate.app.presentation.classical.search.viewmodel.SaveFiltersViewModel
@@ -29,8 +32,7 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
 
     private val classicalSearchViewModel: ClassicalSearchViewModel by viewModels()
 
-
-    private val estateRecyclerAdapter = EstateRecyclerAdapter()
+    private val estateViewModel: EstateViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,16 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        estateViewModel.saveIdReturned(R.layout.fragment_classical_search)
+
+        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
+
+        val filtersButton = view.findViewById<MaterialButton>(R.id.filter_button)
+
+        filtersButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_classical_search_to_filtersClassicalSearchFragment)
+        }
 
         val estateFiltersViewModel =
             ViewModelProvider(requireActivity()).get(SaveFiltersViewModel::class.java)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user"
+    app:startDestination="@+id/navigation_user">
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="smart.estate.app.presentation.user.view.UserFragment"
+        android:label="title_user"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_navigation_user_to_userEstatesFragment"
+            app:destination="@id/userEstatesFragment" />
+        <action
+            android:id="@+id/action_navigation_user_to_userSettingsFragment"
+            app:destination="@id/userSettingsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/userEstatesFragment"
+        android:name="smart.estate.app.presentation.user.view.UserEstatesFragment"
+        android:label="fragment_user_estates"
+        tools:layout="@layout/fragment_user_estates">
+        <action
+            android:id="@+id/action_userEstatesFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+        <action
+            android:id="@+id/action_userEstatesFragment_to_userEstateFragment"
+            app:destination="@id/userEstateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userSettingsFragment"
+        android:name="smart.estate.app.presentation.user.view.UserSettingsFragment"
+        android:label="fragment_user_settings"
+        tools:layout="@layout/fragment_user_settings">
+        <action
+            android:id="@+id/action_userSettingsFragment_to_navigation_user"
+            app:destination="@id/navigation_user" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userEstateFragment"
+        android:name="smart.estate.app.presentation.estate.UserEstateFragment"
+        android:label="fragment_estate"
+        tools:layout="@layout/fragment_estate">
+        <action
+            android:id="@+id/action_userEstateFragment_to_userEstatesFragment"
+            app:destination="@id/userEstatesFragment" />
+    </fragment>
+
+</navigation>

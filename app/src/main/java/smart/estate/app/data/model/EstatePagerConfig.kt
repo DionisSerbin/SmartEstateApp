@@ -5,13 +5,13 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.repository.DataRepository
 import javax.inject.Inject
 
 class EstatePagerConfig @Inject constructor(private val dataRepository: DataRepository){
 
-    fun getEstates(): LiveData<PagingData<DataClass>> {
+    fun getEstates(): LiveData<PagingData<Estate>> {
         dataRepository
         return Pager(
             config = PagingConfig(

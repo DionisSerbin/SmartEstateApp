@@ -4,21 +4,21 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import smart.estate.app.data.model.estate.DataClass
+import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.repository.DataRepository
 import java.lang.Exception
 
 
 class EstatePagingSource(private val dataRepository: DataRepository) :
-    PagingSource<Int, DataClass>() {
-    override fun getRefreshKey(state: PagingState<Int, DataClass>): Int? {
+    PagingSource<Int, Estate>() {
+    override fun getRefreshKey(state: PagingState<Int, Estate>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(ONE_PAGE)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(ONE_PAGE)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DataClass> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Estate> {
         return try{
             val position = params.key ?: ONE_PAGE
             return withContext(Dispatchers.IO) {
