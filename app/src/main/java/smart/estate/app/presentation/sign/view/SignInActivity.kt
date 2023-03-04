@@ -1,11 +1,13 @@
-package smart.estate.app.presentation.sign
+package smart.estate.app.presentation.sign.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import smart.estate.app.R
 import smart.estate.app.data.model.Prefs
 
+@AndroidEntryPoint
 class SignInActivity : AppCompatActivity(), EntryFragment.FragmentCreation,
     SignInFragment.FragmentCreation {
 

@@ -1,4 +1,4 @@
-package smart.estate.app.data.model
+package smart.estate.app.data.model.response
 
 import com.google.gson.annotations.SerializedName
 import smart.estate.app.data.model.estate.DataValidatorInterface

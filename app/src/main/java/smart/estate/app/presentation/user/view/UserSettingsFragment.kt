@@ -6,18 +6,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import org.w3c.dom.Text
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import smart.estate.app.R
 import smart.estate.app.data.model.Prefs
-import smart.estate.app.data.model.UserSettings
+import smart.estate.app.data.model.request.UpdatedUser
+import smart.estate.app.data.model.request.User
+import smart.estate.app.data.model.response.UserSettings
 import smart.estate.app.data.model_processing.Validator
+import smart.estate.app.presentation.sign.viewmodel.SignViewModel
+import smart.estate.app.presentation.user.viewmodel.UserViewModel
 
 class UserSettingsFragment : Fragment() {
 
     private lateinit var prefs: Prefs
+
+    private val signViewModel: UserViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,14 +75,30 @@ class UserSettingsFragment : Fragment() {
                     context = context
                 ).isValidate()
             ) {
-                prefs.putName(nameInputView.text.toString())
-                prefs.putLogin(loginInputView.text.toString())
-                Toast.makeText(
-                    context,
-                    nameInputView.text.toString() + loginInputView.text.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-                findNavController().navigate(R.id.action_userSettingsFragment_to_navigation_user)
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val responseSuccess = withContext(Dispatchers.IO) {
+                        async {
+                            signViewModel.updateUser(
+                                UpdatedUser(
+                                    userLogin = loginInputView.text.toString(),
+                                    userName = nameInputView.text.toString(),
+                                    userMail = prefs.getMail()!!
+                                )
+                            )
+                        }
+                    }.await()
+                    if (responseSuccess == null) {
+                        Toast.makeText(
+                            context,
+                            "Возникла ошибка",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        prefs.putName(nameInputView.text.toString())
+                        prefs.putLogin(loginInputView.text.toString())
+                        findNavController().navigate(R.id.action_userSettingsFragment_to_navigation_user)
+                    }
+                }
             }
         }
     }

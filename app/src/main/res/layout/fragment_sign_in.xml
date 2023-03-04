@@ -5,7 +5,7 @@
     android:id="@+id/fragment_sign_in"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.sign.SignInFragment">
+    tools:context=".presentation.sign.view.SignInFragment">
 
     <ImageView
         android:id="@+id/smart_search_logo"

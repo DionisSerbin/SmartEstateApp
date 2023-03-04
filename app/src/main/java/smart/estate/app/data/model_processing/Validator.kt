@@ -8,7 +8,7 @@ import smart.estate.app.R
 import smart.estate.app.data.model.estate.AddedDataClass
 import smart.estate.app.data.model.estate.DataValidatorInterface
 import smart.estate.app.data.model.estate.SmartDataClassParameters
-import smart.estate.app.data.model.UserSettings
+import smart.estate.app.data.model.response.UserSettings
 import smart.estate.app.data.model.estate.EstateFilters
 
 

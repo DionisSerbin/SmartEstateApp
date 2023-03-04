@@ -28,8 +28,9 @@ class ApiRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient() = OkHttpClient
+    fun provideOkHttpClient(httpLoggingInterceptor :HttpLoggingInterceptor) = OkHttpClient
         .Builder()
+        .addInterceptor(httpLoggingInterceptor)
         .build()
 
     @Provides
@@ -56,6 +57,6 @@ class ApiRepositoryModule {
 
 
     companion object {
-        const val BASE_URL = ""
+        const val BASE_URL = "http://46.188.1.62:8080"
     }
 }

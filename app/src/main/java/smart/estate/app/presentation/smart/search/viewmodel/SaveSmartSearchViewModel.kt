@@ -20,7 +20,7 @@ class SaveSmartSearchViewModel : ViewModel() {
         _estateParameters.value = null
     }
 
-    fun saveCostPredictedPair(costPredictedPair: Pair<Long, Long>) {
+    suspend fun saveCostPredictedPair(costPredictedPair: Pair<Long, Long>) {
         _costPredictedPair.value = costPredictedPair
     }
 

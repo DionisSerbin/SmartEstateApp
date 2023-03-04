@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +18,7 @@ import kotlinx.coroutines.*
 import smart.estate.app.R
 import smart.estate.app.presentation.smart.search.viewmodel.PredictViewModel
 import smart.estate.app.presentation.smart.search.viewmodel.SaveSmartSearchViewModel
+import java.util.logging.LogManager
 
 @AndroidEntryPoint
 class PredictFragment : Fragment() {
@@ -55,14 +57,20 @@ class PredictFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                delay(1000)
+
                 val pair = withContext(Dispatchers.IO) {
                     async {
                         predictViewModel.getPrediction(smartEstateParameters!!)
                     }
+                }.await()
+
+                if (pair == null) {
+                    Toast.makeText(context, "Возникла ошибка",  Toast.LENGTH_SHORT).show()
                 }
 
-                saveSmartSearchViewModel.saveCostPredictedPair(pair.await()!!)
+                if (pair != null) {
+                    saveSmartSearchViewModel.saveCostPredictedPair(pair)
+                }
                 withContext(Dispatchers.Main) {
                     findNavController().navigate(R.id.action_predictFragment_to_estateCostPredictedFragment)
                 }

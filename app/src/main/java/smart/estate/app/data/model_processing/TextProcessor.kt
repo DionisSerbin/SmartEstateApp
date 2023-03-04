@@ -5,21 +5,14 @@ import smart.estate.app.presentation.smart.search.view.EstateCostPredictedFragme
 class TextProcessor {
 
     fun getCostsPredicted(costPredictedPair: Pair<Long, Long>): Pair<String, String> {
-        var firstPredictedCost = costPredictedPair.first
-        var secondPredictedCost = costPredictedPair.second
-        if (secondPredictedCost < firstPredictedCost) {
-            secondPredictedCost =
-                firstPredictedCost.apply { firstPredictedCost = secondPredictedCost }
-        }
         return Pair(
-            convertCostToNiceText(firstPredictedCost),
-            convertCostToNiceText(secondPredictedCost)
+            convertCostToNiceText(costPredictedPair.first),
+            convertCostToNiceText(costPredictedPair.second)
         )
     }
 
     fun convertCostToNiceText(cost: Long): String {
-        val costMillion = cost * MILLION_VALUE
-        var reversedString = costMillion.toString().reversed()
+        var reversedString = cost.toString().reversed()
         var range = INIT_RANGE
         while (range < reversedString.length) {
             reversedString = addChar(reversedString, range)

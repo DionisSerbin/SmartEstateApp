@@ -6,27 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import smart.estate.app.R
 import smart.estate.app.data.model.Prefs
-import smart.estate.app.presentation.common.EstateRecyclerAdapter
-import smart.estate.app.presentation.sign.SignInActivity
-import smart.estate.app.presentation.user.viewmodel.UserViewModel
+import smart.estate.app.presentation.sign.view.SignInActivity
 
 class UserFragment : Fragment(R.layout.fragment_user) {
 

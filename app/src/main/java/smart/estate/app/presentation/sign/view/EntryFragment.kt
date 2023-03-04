@@ -1,4 +1,4 @@
-package smart.estate.app.presentation.sign
+package smart.estate.app.presentation.sign.view
 
 
 import android.content.Intent
