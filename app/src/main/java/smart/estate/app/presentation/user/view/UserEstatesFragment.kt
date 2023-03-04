@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import smart.estate.app.R
+import smart.estate.app.data.model.Prefs
 import smart.estate.app.presentation.common.EstateRecyclerAdapter
 import smart.estate.app.presentation.common.EstateViewModel
 import smart.estate.app.presentation.user.viewmodel.UserViewModel
@@ -31,6 +32,8 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
 
     private val estateViewModel: EstateViewModel by activityViewModels()
 
+    private lateinit var prefs: Prefs
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +44,8 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = context?.let { Prefs(it) }!!
+
         estateViewModel.saveIdReturned(R.layout.fragment_user_estates)
 
         val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
@@ -49,7 +54,6 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
 
         previousButtonToUserPage.setOnClickListener {
             findNavController().navigate(R.id.action_userEstatesFragment_to_navigation_user)
-
         }
 
         view.findViewById<RecyclerView>(R.id.user_estate_recycler_view).apply {
@@ -80,7 +84,7 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
         }
 
         viewLifecycleOwner.lifecycleScope.launch{
-            userViewModel.getEstates().observe(viewLifecycleOwner){
+            userViewModel.getUserEstates(prefs.getMail()!!).observe(viewLifecycleOwner){
                 it?.let {
                     estateRecyclerAdapter.submitData(lifecycle, it)
                 }

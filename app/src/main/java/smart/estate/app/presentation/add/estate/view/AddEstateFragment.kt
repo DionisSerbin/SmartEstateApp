@@ -14,27 +14,33 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 import smart.estate.app.R
+import smart.estate.app.data.model.Prefs
 import smart.estate.app.data.model.estate.AddedDataClass
 import smart.estate.app.data.model_processing.Validator
 import smart.estate.app.presentation.add.estate.viewmodel.AddEstateViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class AddEstateFragment : Fragment(R.layout.fragment_add_estate) {
 
     private val addedEstateViewModel: AddEstateViewModel by activityViewModels()
+
+    lateinit var prefs: Prefs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_estate, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        prefs = context?.let { Prefs(it) }!!
 
         val estateToggle =
             view.findViewById<MaterialButtonToggleGroup>(R.id.add_estate_toggle_button)
@@ -65,7 +71,6 @@ class AddEstateFragment : Fragment(R.layout.fragment_add_estate) {
 
         addButton.setOnClickListener {
 
-            Log.d("hui", "GOVNO")
             val costInput =
                 view.findViewById<TextInputEditText>(R.id.add_estate_cost_input_edit_text).text.toString()
 
@@ -100,8 +105,11 @@ class AddEstateFragment : Fragment(R.layout.fragment_add_estate) {
             val kitchenAreaInput =
                 view.findViewById<TextInputEditText>(R.id.add_estate_kitchen_area_from_input_edit_text).text.toString()
 
-            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-            val currentDate = sdf.format(Date())
+            val date = Date()
+            val currentDay = SimpleDateFormat("dd").format(date)
+            val currentMonth = SimpleDateFormat("M").format(date)
+            val currentYear = SimpleDateFormat("yyyy").format(date)
+            val currentTime = SimpleDateFormat("hh:mm:ss").format(date)
 
             val addedEstate = AddedDataClass(
                 price = costInput,
@@ -113,11 +121,14 @@ class AddEstateFragment : Fragment(R.layout.fragment_add_estate) {
                 numberOfRooms = numberOfRoomsInput,
                 totalArea = totalAreaInput,
                 kitchenArea = kitchenAreaInput,
-                time = currentDate
+                time = currentTime,
+                mail = prefs.getMail()!!,
+                day = currentDay.toInt(),
+                month = currentMonth.toInt(),
+                year = currentYear.toInt()
+
             )
             if (Validator(dataValidatorInterface = addedEstate, view = view, context = context).isValidate()) {
-                Toast.makeText(context, addedEstate.toString(), Toast.LENGTH_LONG).show()
-                Log.d("hui", addedEstate.toString())
                 addedEstateViewModel.saveAddedEstate(addedEstate)
                 findNavController().navigate(R.id.action_navigation_add_estate_to_addingEstateFragment)
             }

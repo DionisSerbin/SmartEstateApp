@@ -2,9 +2,10 @@ package smart.estate.app.data.model.estate
 
 import com.google.gson.annotations.SerializedName
 import smart.estate.app.data.model.estate.DataValidatorInterface
+import java.time.Month
 
 data class AddedDataClass(
-    @SerializedName("estate_price")
+    @SerializedName("price")
     var price: String,
     @SerializedName("objectType")
     var objectType: Int,
@@ -23,5 +24,13 @@ data class AddedDataClass(
     @SerializedName("kitchenArea")
     var kitchenArea: String,
     @SerializedName("time")
-    var time: String
+    var time: String,
+    @SerializedName("day")
+    var day: Int,
+    @SerializedName("month")
+    var month: Int,
+    @SerializedName("year")
+    var year: Int,
+    @SerializedName("user_mail")
+    var mail: String
 ) : DataValidatorInterface()

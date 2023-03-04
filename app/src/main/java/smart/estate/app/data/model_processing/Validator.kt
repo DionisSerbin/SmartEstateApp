@@ -429,6 +429,9 @@ class Validator(
                 parameterView.error = "Слишком много"
                 return false
             }
+        } else {
+            parameterView.error = "Обязательное поле"
+            return false
         }
         return true
     }
@@ -452,6 +455,9 @@ class Validator(
                 parameterView.error = "Слишком много"
                 return false
             }
+        } else {
+            parameterView.error = "Обязательное поле"
+            return false
         }
         return true
     }
@@ -475,6 +481,9 @@ class Validator(
                 parameterView.error = "Слишком много"
                 return false
             }
+        } else{
+            parameterView.error = "Обязательное поле"
+            return false
         }
         return true
     }
@@ -489,6 +498,9 @@ class Validator(
                 parameterToView.error = "Неправильно указаны От и До"
                 return false
             }
+        } else{
+            parameterToView.error = "Обязательное поле"
+            return false
         }
         return true
     }
@@ -503,6 +515,9 @@ class Validator(
                 parameterToView.error = "Неправильно указаны От и До"
                 return false
             }
+        } else{
+            parameterToView.error = "Обязательное поле"
+            return false
         }
         return true
     }

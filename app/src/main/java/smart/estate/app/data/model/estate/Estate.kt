@@ -4,39 +4,55 @@ import com.google.gson.annotations.SerializedName
 import smart.estate.app.data.model.estate.DataValidatorInterface
 import java.io.Serializable
 
+data class EstateResponse(
+    @SerializedName("items")
+    val items: List<Estate>,
+    @SerializedName("limit")
+    val limit: Int,
+    @SerializedName("offset")
+    val offset: Int,
+    @SerializedName("total")
+    val total: Int
+)
+
 data class Estate(
+    @SerializedName("address")
+    val address: String,
+    @SerializedName("area")
+    val totalArea: Float,
+    @SerializedName("building_type")
+    val buildingType: Int,
+    @SerializedName("day")
+    val day: Int,
     @SerializedName("estate_id")
-    var id: Int,
-    @SerializedName("estate_price")
-    var price: Float,
-    @SerializedName("estate_year")
-    var year: Int,
-    @SerializedName("estate_month")
-    var month: Int,
-    @SerializedName("estate_day")
-    var day: Int,
-    @SerializedName("estate_time")
-    var time: String,
-    @SerializedName("estate_latitude")
-    var latitude: Float,
-    @SerializedName("estate_longitude")
-    var longitude: Float,
-    @SerializedName("estate_region")
-    var region: Int,
-    @SerializedName("estate_building_type")
-    var buildingType: Int,
-    @SerializedName("estate_level")
-    var level: Int,
-    @SerializedName("estate_levels")
-    var levels: Int,
-    @SerializedName("estate_rooms")
-    var rooms: Int,
-    @SerializedName("estate_area")
-    var totalArea: Float,
-    @SerializedName("estate_kitchen_area")
-    var kitchenArea: Float,
-    @SerializedName("estate_object_type")
-    var objectType: Int,
-    @SerializedName("estate_photos")
+    val id: Int,
+    @SerializedName("kitchen_area")
+    val kitchenArea: Float,
+    @SerializedName("latitude")
+    val latitude: Float,
+    @SerializedName("level")
+    val level: Int,
+    @SerializedName("levels")
+    val levels: Int,
+    @SerializedName("longitude")
+    val longitude: Float,
+    @SerializedName("month")
+    val month: Int,
+    @SerializedName("object_type")
+    val objectType: Int,
+    @SerializedName("price")
+    val price: Float,
+    @SerializedName("region")
+    val region: Int,
+    @SerializedName("region_name")
+    val regionName: Any,
+    @SerializedName("rooms")
+    val rooms: Int,
+    @SerializedName("time")
+    val time: String,
+    @SerializedName("user_id")
+    val userId: Any,
+    @SerializedName("year")
+    val year: Int,
     var photos: List<Int>
-) : DataValidatorInterface()
+): DataValidatorInterface()

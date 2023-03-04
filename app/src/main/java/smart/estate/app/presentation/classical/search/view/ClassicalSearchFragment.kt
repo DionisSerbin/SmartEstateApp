@@ -85,14 +85,14 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            if (estateFiltersViewModel.estateFilters.value != null) {
+            if (estateFiltersViewModel.estateFilters.value == null) {
                 classicalSearchViewModel.getEstates().observe(viewLifecycleOwner) {
                     it?.let {
                         estateRecyclerAdapter.submitData(lifecycle, it)
                     }
                 }
             } else {
-                classicalSearchViewModel.getEstates().observe(viewLifecycleOwner) {
+                classicalSearchViewModel.getEstatesWhere(estateFiltersViewModel.estateFilters.value!!).observe(viewLifecycleOwner) {
                     it?.let {
                         estateRecyclerAdapter.submitData(lifecycle, it)
                     }

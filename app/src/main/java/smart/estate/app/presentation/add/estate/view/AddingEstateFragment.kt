@@ -8,19 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 import smart.estate.app.R
+import smart.estate.app.data.model.request.User
 import smart.estate.app.presentation.add.estate.viewmodel.AddEstateViewModel
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
 
+@AndroidEntryPoint
 class AddingEstateFragment : Fragment(R.layout.fragment_adding_estate) {
 
     private lateinit var frameAnimation: AnimationDrawable
@@ -29,7 +32,6 @@ class AddingEstateFragment : Fragment(R.layout.fragment_adding_estate) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_adding_estate, container, false)
     }
 
@@ -60,24 +62,25 @@ class AddingEstateFragment : Fragment(R.layout.fragment_adding_estate) {
             findNavController().navigate(R.id.action_addingEstateFragment_to_navigation_add_estate)
         }
 
-        Log.d("hui-adding", addedEstate.toString())
-
-
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                delay(1000)
-                val flag = (0..1).random()
+                val responseSuccess = withContext(Dispatchers.IO) {
+                    async {
+                        addEstateViewModel.createEstate(addedEstate!!)
+                    }
+                }.await()
                 frameAnimation.stop()
-                if (flag == 1) {
-                    successImageView.isVisible = true
-                    delay(500)
-                    findNavController().navigate(R.id.action_addingEstateFragment_to_navigation_add_estate)
-
-                } else {
+                if (responseSuccess == null) {
+                    Toast.makeText(
+                        context,
+                        "Возникла ошибка",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     errorImageView.isVisible = true
-                    delay(500)
                     findNavController().navigate(R.id.action_addingEstateFragment_to_navigation_add_estate)
-
+                } else {
+                    successImageView.isVisible = true
+                    findNavController().navigate(R.id.action_addingEstateFragment_to_navigation_add_estate)
                 }
             } catch (error: Throwable) {
                 error.printStackTrace()
@@ -87,7 +90,6 @@ class AddingEstateFragment : Fragment(R.layout.fragment_adding_estate) {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance() = AddingEstateFragment()
     }
