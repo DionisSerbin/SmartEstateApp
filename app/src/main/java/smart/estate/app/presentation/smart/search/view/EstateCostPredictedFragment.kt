@@ -6,13 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 import smart.estate.app.R
+import smart.estate.app.data.model.estate.EstateFilters
 import smart.estate.app.data.model_processing.TextProcessor
+import smart.estate.app.presentation.classical.search.viewmodel.SaveFiltersViewModel
 import smart.estate.app.presentation.smart.search.viewmodel.SaveSmartSearchViewModel
 
 class EstateCostPredictedFragment : Fragment() {
 
+    private val saveFiltersViewModel: SaveFiltersViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +44,29 @@ class EstateCostPredictedFragment : Fragment() {
         costFromTextView.text = costTextPair.first
         costToTextView.text = costTextPair.second
 
+        val navigateToClassicalSearchButton = view.findViewById<MaterialButton>(R.id.show_estate_by_price_predicted)
 
+        navigateToClassicalSearchButton.setOnClickListener{
+            val estateFilters = EstateFilters(
+                priceFrom = costPredictedPair.first.toString(),
+                priceTo = costPredictedPair.second.toString(),
+                city = "",
+                objectType = -2,
+                houseType = -2,
+                levelFrom = "",
+                levelTo = "",
+                levelsFrom = "",
+                levelsTo = "",
+                numberOfRoomsFrom = "",
+                numberOfRoomsTo = "",
+                totalAreaFrom = "",
+                totalAreaTo = "",
+                kitchenAreaFrom = "",
+                kitchenAreaTo = ""
+            )
+            saveFiltersViewModel.saveEstateFilters(estateFilters)
+            findNavController().navigate(R.id.action_estateCostPredictedFragment_to_ClassicalSearch)
+        }
     }
 
 

@@ -52,6 +52,7 @@
 
     <!--Classical Search fragment-->
     <string name="classical_search_bar_text">Классический поиск</string>
+    <string name="clear_filters_text">Очистить\nфильтры</string>
 
     <!--Filter Classical Search fragment-->
     <string name="classical_cost_text">Цена</string>

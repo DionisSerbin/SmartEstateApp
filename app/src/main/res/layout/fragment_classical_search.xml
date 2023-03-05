@@ -40,6 +40,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/MaterialCircleButtonStyle" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clear_filters_button"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_horizontal_screen"
+        android:layout_marginStart="@dimen/margin_horizontal_screen"
+        android:padding="@dimen/zero_size"
+        app:iconGravity="textStart"
+        android:textAllCaps="false"
+        android:fontFamily="@font/main_font_regular"
+        android:textSize="@dimen/text_size_mega_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cornerRadius="@dimen/padding_edit_text"
+        android:text="@string/clear_filters_text"
+        android:textColor="@color/text_color"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/classical_estate_recycler_view"
         android:layout_width="match_parent"

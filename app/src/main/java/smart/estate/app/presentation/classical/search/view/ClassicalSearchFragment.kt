@@ -84,6 +84,12 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
             }
         }
 
+        val clearFiltersButton = view.findViewById<MaterialButton>(R.id.clear_filters_button)
+
+        clearFiltersButton.setOnClickListener{
+            estateFiltersViewModel.estateFilters.value = null
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             if (estateFiltersViewModel.estateFilters.value == null) {
                 classicalSearchViewModel.getEstates().observe(viewLifecycleOwner) {

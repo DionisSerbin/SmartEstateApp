@@ -1,15 +1,10 @@
 package smart.estate.app.presentation.favourites.viewmodel
 
-import androidx.lifecycle.LiveData
+
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import smart.estate.app.R
 import smart.estate.app.data.model.estate.Estate
-import smart.estate.app.data.model.pagging.EstatePagerConfig
-import smart.estate.app.data.model.response.FavEstates
 import smart.estate.app.data.repository.ApiRepository
 import smart.estate.app.utils.Resource
 import javax.inject.Inject

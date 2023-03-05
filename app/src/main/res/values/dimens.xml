@@ -4,6 +4,7 @@
     <dimen name="text_size_button">16sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_super_small">14sp</dimen>
+    <dimen name="text_size_mega_small">12sp</dimen>
     <dimen name="text_size_medium">20sp</dimen>
     <dimen name="zero_size">0dp</dimen>
     <dimen name="one_size">1dp</dimen>

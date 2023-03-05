@@ -6,7 +6,6 @@ import smart.estate.app.data.model.estate.*
 import smart.estate.app.data.model.request.Prediction
 import smart.estate.app.data.model.request.UpdatedUser
 import smart.estate.app.data.model.request.User
-import smart.estate.app.data.model.response.FavEstates
 
 interface ApiService {
     @Headers("Content-Type: application/json")

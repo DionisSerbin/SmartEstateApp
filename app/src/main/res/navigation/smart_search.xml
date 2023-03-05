@@ -32,6 +32,10 @@
         android:id="@+id/estateCostPredictedFragment"
         android:name="smart.estate.app.presentation.smart.search.view.EstateCostPredictedFragment"
         android:label="fragment_estate_cost_predicted"
-        tools:layout="@layout/fragment_estate_cost_predicted" />
+        tools:layout="@layout/fragment_estate_cost_predicted">
+        <action
+            android:id="@+id/action_estateCostPredictedFragment_to_ClassicalSearch"
+            app:destination="@+id/classical_search"/>
+    </fragment>
 
 </navigation>

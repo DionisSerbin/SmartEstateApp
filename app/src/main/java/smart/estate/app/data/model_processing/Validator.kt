@@ -305,16 +305,16 @@ class Validator(
     }
 
     private fun isValidateCity(city: String, cityInput: TextInputEditText): Boolean {
-
-        if (city.isEmpty()) {
+        val cityNoSpace = city.replace("\\s+".toRegex(), "")
+        if (cityNoSpace.isEmpty()) {
             cityInput.error = "Обязательное поле"
             return false
         }
-        if (city.length > 30) {
+        if (cityNoSpace.length > 30) {
             cityInput.error = "Слишком большое навзание"
             return false
         }
-        if (!checkByRegex(city, CYRILLIC_REGEX)) {
+        if (!checkByRegex(cityNoSpace, CYRILLIC_REGEX)) {
             cityInput.error = "Напишите на русском"
             return false
         }
