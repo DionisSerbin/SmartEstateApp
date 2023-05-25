@@ -1,6 +1,7 @@
 package smart.estate.app.presentation.favourites.view
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
@@ -9,7 +10,7 @@ import smart.estate.app.R
 import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.presentation.common.EstateViewHolder
 
-class FavouriteRecyclerAdapter(var estates: MutableList<Estate>, val viewModel: ViewModel) :
+class FavouriteRecyclerAdapter(var estates: MutableList<Estate>, val viewModel: ViewModel, val context: Context) :
     RecyclerView.Adapter<EstateViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstateViewHolder {
@@ -19,7 +20,7 @@ class FavouriteRecyclerAdapter(var estates: MutableList<Estate>, val viewModel: 
     }
 
     override fun onBindViewHolder(holder: EstateViewHolder, position: Int) {
-        holder.bind(estates[position])
+        holder.bind(estates[position], context)
     }
 
     override fun getItemCount() = estates.size

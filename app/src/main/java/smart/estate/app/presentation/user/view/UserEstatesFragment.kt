@@ -48,7 +48,7 @@ class UserEstatesFragment : Fragment(R.layout.fragment_user_estates) {
 
         estateViewModel.saveIdReturned(R.layout.fragment_user_estates)
 
-        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
+        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel, requireContext())
 
         val previousButtonToUserPage = view.findViewById<MaterialButton>(R.id.user_previous_page_button)
 

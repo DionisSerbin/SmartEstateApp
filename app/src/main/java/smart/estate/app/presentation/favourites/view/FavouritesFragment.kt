@@ -46,7 +46,7 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
         estateViewModel.saveIdReturned(R.layout.fragment_favourites)
 
-        val estateRecyclerAdapter = FavouriteRecyclerAdapter(estates, estateViewModel)
+        val estateRecyclerAdapter = FavouriteRecyclerAdapter(estates, estateViewModel, requireContext())
 
         view.findViewById<RecyclerView>(R.id.favourites_estate_recycler_view).apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

@@ -46,7 +46,7 @@ class ClassicalSearchFragment : Fragment(R.layout.fragment_classical_search) {
 
         estateViewModel.saveIdReturned(R.layout.fragment_classical_search)
 
-        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel)
+        val estateRecyclerAdapter = EstateRecyclerAdapter(estateViewModel, requireContext())
 
         val filtersButton = view.findViewById<MaterialButton>(R.id.filter_button)
 

@@ -1,9 +1,12 @@
 package smart.estate.app.presentation.common
 
+import android.content.Context
+import android.location.Geocoder
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -12,14 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import smart.estate.app.R
 import smart.estate.app.data.model.Prefs
 import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.model_processing.TextProcessor
+import java.util.*
 
 class EstateViewHolder(val view: View, val viewModel: ViewModel) : RecyclerView.ViewHolder(view) {
 
@@ -41,7 +42,7 @@ class EstateViewHolder(val view: View, val viewModel: ViewModel) : RecyclerView.
 
     private val viewPager by lazy { view.findViewById<ViewPager2>(R.id.photos_view_pager) }
 
-    fun bind(estate: Estate) {
+    fun bind(estate: Estate, context: Context) {
         estateCard.setOnClickListener {
             (viewModel as EstateViewModel).saveEstate(estate)
             when (viewModel.idReturned.value) {
@@ -74,17 +75,26 @@ class EstateViewHolder(val view: View, val viewModel: ViewModel) : RecyclerView.
                 }
             }
         }
-
+//        addressEstateTextView.text = "${estate.longitude} + ${estate.latitude} + ${estate.region}"
+        addressEstateTextView.text = "..."
         costEstateTextView.text = TextProcessor().convertCostToNiceText(estate.price)
         totalAreaEstateTextView.text = TextProcessor().convertAreaToNiceText(estate.totalArea)
-        addressEstateTextView.text = "${estate.longitude} + ${estate.latitude} + ${estate.region}"
+
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses = geocoder.getFromLocation(
+            estate.latitude.toDouble(),
+            estate.longitude.toDouble(),
+            1
+        )
+        addressEstateTextView.text = "${addresses?.get(0)?.locality}, ${addresses?.get(0)?.getAddressLine(0)}"
+
         timePublishedEstateTextView.text = TextProcessor().convertDateToNiceText(
             day = estate.day,
             month = estate.month,
             year = estate.year,
             time = estate.time
         )
-        pageNumber.text = "${estate.id}"
+        pageNumber.isVisible = false
 
         val estateViewPagerAdapter = EstateViewPagerAdapter(estate.photos)
 

@@ -1,5 +1,6 @@
 package smart.estate.app.presentation.common
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
@@ -8,13 +9,13 @@ import smart.estate.app.R
 import smart.estate.app.data.model.estate.Estate
 import smart.estate.app.data.model_processing.EstateComparator
 
-class EstateRecyclerAdapter(val viewModel: ViewModel) : PagingDataAdapter<Estate, EstateViewHolder>(
+class EstateRecyclerAdapter(val viewModel: ViewModel, val context: Context) : PagingDataAdapter<Estate, EstateViewHolder>(
     EstateComparator()
 ) {
     override fun onBindViewHolder(holder: EstateViewHolder, position: Int) {
         val estate = getItem(position)
         if (estate != null) {
-            holder.bind(estate)
+            holder.bind(estate, context)
         }
     }
 
