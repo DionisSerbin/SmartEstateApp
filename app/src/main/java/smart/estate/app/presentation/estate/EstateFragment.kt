@@ -15,6 +15,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import smart.estate.app.R
 import smart.estate.app.data.model.estate.Estate
+import smart.estate.app.data.model_processing.LocationGeocoder
 import smart.estate.app.data.model_processing.TextProcessor
 import smart.estate.app.presentation.common.EstateViewModel
 import smart.estate.app.presentation.common.EstateViewPagerAdapter
@@ -58,13 +59,19 @@ abstract class EstateFragment : Fragment(R.layout.fragment_estate) {
             time = estate.time
         )
         //TODO add objecttype
-        totalAreaTextView.text = TextProcessor().convertAreaToNiceText(estate.totalArea)
-        addressTextView.text = "${estate.longitude} + ${estate.latitude} + ${estate.region}"
-        houseTypeTextView.text = estate.buildingType.toString()
-        levelTextView.text = estate.level.toString()
-        levelsTextView.text = estate.levels.toString()
-        numberOfRooms.text = estate.rooms.toString()
-        kitchenAreaTextView.text = TextProcessor().convertAreaToNiceText(estate.kitchenArea)
+        totalAreaTextView.text =
+            TOTAL_AREA_STRING + TextProcessor().convertAreaToNiceText(estate.totalArea)
+        addressTextView.text = ADDRESS_STRING + LocationGeocoder().getAddress(
+            context = requireContext(),
+            latitude = estate.latitude,
+            longitude = estate.longitude
+        )
+        houseTypeTextView.text = HOUSE_TYPE_STRING + HOUSE_TYPE[estate.buildingType]
+        levelTextView.text = LEVEL_STRING + estate.level.toString()
+        levelsTextView.text = LEVELS_STRING + estate.levels.toString()
+        numberOfRooms.text = NUMBER_OF_ROOMS_STRING + estate.rooms.toString()
+        kitchenAreaTextView.text =
+            KITCHEN_AREA_STRING + TextProcessor().convertAreaToNiceText(estate.kitchenArea)
         val estateViewPagerAdapter = EstateViewPagerAdapter(estate.photos)
         viewPager.adapter = estateViewPagerAdapter
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -78,5 +85,23 @@ abstract class EstateFragment : Fragment(R.layout.fragment_estate) {
                 R.layout.fragment_user_estates -> findNavController().navigate(R.id.action_userEstateFragment_to_userEstatesFragment)
             }
         }
+    }
+
+    companion object {
+        private const val ADDRESS_STRING = "Адрес: "
+        private const val TOTAL_AREA_STRING = "Площадь: "
+        private const val KITCHEN_AREA_STRING = "Площадь кухни: "
+        private const val LEVEL_STRING = "Этаж: "
+        private const val LEVELS_STRING = "Всего этажей: "
+        private const val NUMBER_OF_ROOMS_STRING = "Комнат: "
+        private const val HOUSE_TYPE_STRING = "Тип дома: "
+        private val HOUSE_TYPE = mapOf<Int, String>(
+            0 to "Прочее",
+            1 to "Панельный дом",
+            2 to "Монолит",
+            3 to "Кирпичный",
+            4 to "Блочный",
+            5 to "Деревянный"
+        )
     }
 }

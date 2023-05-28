@@ -1,7 +1,6 @@
 package smart.estate.app.presentation.common
 
 import android.content.Context
-import android.location.Geocoder
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -14,11 +13,11 @@ import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import smart.estate.app.R
 import smart.estate.app.data.model.Prefs
 import smart.estate.app.data.model.estate.Estate
+import smart.estate.app.data.model_processing.LocationGeocoder
 import smart.estate.app.data.model_processing.TextProcessor
 import java.util.*
 
@@ -80,13 +79,11 @@ class EstateViewHolder(val view: View, val viewModel: ViewModel) : RecyclerView.
         costEstateTextView.text = TextProcessor().convertCostToNiceText(estate.price)
         totalAreaEstateTextView.text = TextProcessor().convertAreaToNiceText(estate.totalArea)
 
-        val geocoder = Geocoder(context, Locale.getDefault())
-        val addresses = geocoder.getFromLocation(
-            estate.latitude.toDouble(),
-            estate.longitude.toDouble(),
-            1
+        addressEstateTextView.text = LocationGeocoder().getAddress(
+            context = context,
+            latitude = estate.latitude,
+            longitude = estate.longitude
         )
-        addressEstateTextView.text = "${addresses?.get(0)?.locality}, ${addresses?.get(0)?.getAddressLine(0)}"
 
         timePublishedEstateTextView.text = TextProcessor().convertDateToNiceText(
             day = estate.day,
